@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 04 sep 2017 om 14:53
+-- Gegenereerd op: 05 sep 2017 om 12:19
 -- Serverversie: 5.6.17
 -- PHP-versie: 5.5.12
 
@@ -23,12 +23,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `permissions`
+-- Tabelstructuur voor tabel `appointments`
 --
 
-CREATE TABLE IF NOT EXISTS `permissions` (
+CREATE TABLE IF NOT EXISTS `appointments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `permission` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `description` varchar(255) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -41,7 +44,6 @@ CREATE TABLE IF NOT EXISTS `permissions` (
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `permission_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
