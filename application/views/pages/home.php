@@ -1,2 +1,2 @@
 <h2><?= $title ?></h2>
-<p>Welcome to this professional dentist website m8</p>
+<p>Welcome! This is the Home Page. Made by Lars.</p>
