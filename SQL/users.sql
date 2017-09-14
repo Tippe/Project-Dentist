@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 13 sep 2017 om 15:44
+-- Gegenereerd op: 14 sep 2017 om 17:40
 -- Serverversie: 5.7.17-log
 -- PHP-versie: 7.0.10
 
@@ -27,19 +27,26 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
-  `username` varchar(254) NOT NULL,
-  `password` varchar(254) NOT NULL,
-  `email` varchar(254) NOT NULL,
-  `geslacht` varchar(254) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `firstname` varchar(100) NOT NULL,
+  `prefix` varchar(100) NOT NULL,
+  `lastname` varchar(100) NOT NULL,
+  `adress` varchar(70) NOT NULL,
+  `city` varchar(80) NOT NULL,
+  `postalcode` varchar(6) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `geslacht`) VALUES
-(1, 'test', '25d55ad283aa400af464c76d713c07ad', 'sdfsdf@gmail.com', 'man');
+INSERT INTO `users` (`id`, `username`, `password`, `firstname`, `prefix`, `lastname`, `adress`, `city`, `postalcode`, `email`, `phone`, `role_id`) VALUES
+(1, 'test', '25d55ad283aa400af464c76d713c07ad', 'henk', 'de', 'tank', 'lolol', 'derpederp', '2333 T', 'wrwer@gmail.com', 213456, 0);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -49,7 +56,9 @@ INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `geslacht`) VAL
 -- Indexen voor tabel `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `role_id` (`role_id`);
 
 --
 -- AUTO_INCREMENT voor geëxporteerde tabellen
@@ -59,7 +68,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

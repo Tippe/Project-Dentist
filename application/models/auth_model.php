@@ -2,7 +2,7 @@
 /**
  * Created by PhpStorm.
  * User: DustDustin
- * Date: 13-Sep-17
+ * Date: 14-Sep-17
  * Time: 5:19 PM
  */
 class auth_model extends CI_Model{
@@ -14,59 +14,53 @@ class auth_model extends CI_Model{
     }
 
     public function login(){
-        /** beide vars  roepen velden aan van login form */
+        /**both variables are form fields */
         $username = $_POST['username'];
-        /** @var  $password bevat md5 hash aan voor veiligheid van gebruikers */
         $password = md5($_POST['password']);
-        /** Query word aangemaakt op te kijken als gebruiker bestaat */
+        /** Query gets generated to look if user exists */
         $this->db->select('*');
         $this->db->from('users');
         $this->db->where(array('username'=>$username, 'password'=>$password));
-        /**   $this->db->join('roles', 'users.role_id = roles.role_id'); **/
         $query = $this->db->get();
-        /** als query bestat doe volgende actie */
+        /** if statement looks if query is filled with results */
         if($query->num_rows() > 0) {
-            /** @var  $user  query row wordt hernoemd  */
+            /** @var  $user  query row get ranamed  */
             $user = $query->row();
 
-            /** als query row is gevuld met username of password voer volgende opdracht uit */
+            /** looks if query has username in it */
             if ($user->username) {
                 $this->session->set_flashdata('gelukt', 'je bent aangemeld');
-                /** zorgt dat gegevens in session bewaard worden voor later gebruik */
+                /** keeps user logged-in in session  */
                 $_SESSION['user_logged'] = TRUE;
-                $_SESSION['username'] = $user->username;
-                $_SESSION['email'] = $user->email;
-                $_SESSION['geslacht'] = $user->geslacht;
 
-                /** nadat alles succes vol is gegaan stuur door naar studentplaza/inside */
-                redirect('welcome', 'refresh');
+                /** redirect to new page behind login page*/
+                redirect('[controller of next destination]', 'refresh');
             }
         }
-        /** als query leeg is, refresh pagina en weergeef sessions error op login form*/
+        /** if $query is empty give error on login page*/
         else{
-            $this->session->set_flashdata("ERROR", "Gebruikersnaam of wachtwoord is onjuist!");
+            $this->session->set_flashdata("ERROR", "Invalid username or password!");
             redirect("auth/login", "refresh");
 
         }
     }
     public function register()
     {
-        /** data array word gebruikt op de query klein te houden (array word gevuld met gegevens van register form */
+        /** data array is filled with register form fields  */
         $data = array(
             'username' => $_POST['username'],
             'password' =>md5($_POST['password']),
+            'firstname' =>$_POST['firstname'],
+            'prefix' => $_POST['prefix'],
+            'lastname' => $_POST['lastname'],
+            'adress' => $_POST['adress'],
+            'city' => $_POST['city'],
+            'postalcode' => $_POST['postalcode'],
             'email' => $_POST['email'],
-            'geslacht' => $_POST['geslacht'],
-
-
+            'phone' => $_POST['phone']
         );
+        /** insert data array into table users */
         $this->db->insert('users', $data);
-
-
-        /** als account is aangemaakt geef sessions melding dat het gelukt is op register pagina */
-        $this->session->set_flashdata("gelukt", "Uw account is aangemaakt.");
-        redirect("auth/register", "refresh");
-
 
     }
 }

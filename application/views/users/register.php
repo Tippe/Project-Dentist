@@ -3,49 +3,59 @@
 
 <head>
     <meta charset = "utf-8">
-    <title>Registreren</title>
+    <title>Dentist register</title>
 </head>
 
 <body>
 
 
-<p> Registreer hier uw account. </p>
+<p> Register your account</p>
 
 <?php
-/** als session gelukt is gevuld echo session */
-if(isset($_SESSION['gelukt'])) {
+/** gives message if  registration was succesfull  */
+if(isset($_SESSION['succeed'])) {
 
     ?>
-    <p><?php echo $_SESSION['gelukt']; ?></p>
+    <p><?php echo $_SESSION['succeed']; ?></p>
     <?php
 }
 ?>
 <?php
-/** echo errors van validation in register controller */
+/** echo errors of form validation from controller */
 echo validation_errors(); ?>
 
 <?php echo form_open('auth/register'); ?>
-<!-- Start van register form -->
-<label for="username">gebruikersnaam:</label>
-<input name="username" type="text"/><br />
+<!-- Start register form -->
+    <label for="username">Username:</label>
+        <input name="username" type="text"/><br />
 
-<label for="password">wachtwoord:</label>
-<input name="password" type="password"/><br />
+    <label for="password">Password:</label>
+        <input name="password" type="password"/><br />
 
-<label for="password2">Herhaal wachtwoord:</label>
-<input name="password2" type="password"/> <br />
+    <label for="password2">Confirm password:</label>
+        <input name="password2" type="password"/> <br />
 
-<label for="email">Email adres</label>
-<input name="email" type="text"/><br />
+    <label for="name">Name:</label>
+        <input name="firstname" type="text" placeholder="Firstname"/>
+        <input name="prefix" type="text" placeholder="Prefix"/>
+        <input name="lastname" type="text" placeholder="Lastname"/><br />
 
-<label for="geslacht">uw geslacht</label>
-<select id="geslacht" name="geslacht">
-    <option value="man">Man</option>
-    <option value="vrouw">Vrouw</option>
-</select><br/>
+    <label for="adress">Adress:</label>
+        <input name="adress" type="text"/><br />
 
+    <label for="city">City:</label>
+        <input name="city" type="text"/><br />
 
-<input type="submit" name="submit" value="Registreer" />
+    <label for="postalcode">Postalcode:</label>
+        <input name="postalcode" type="text"/><br />
+
+    <label for="email">E-mail:</label>
+        <input name="email" type="text"/><br />
+
+    <label for="phone">Phone:</label>
+        <input name="phone" type="text"/><br />
+
+    <input type="submit" name="submit" value="Register" />
 
 </form>
 </body>

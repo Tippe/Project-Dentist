@@ -14,9 +14,9 @@
         }
         ?><br/>
         <!-- login form-->
-        <input class="form-control log_txt" name="username" type="text" placeholder="Gebruikersnaam"/><br />
-        <input class="form-control log_txt" name="password" type="password" placeholder="wachtwoord"/><br />
+        <input class="form-control log_txt" name="username" type="text" placeholder="Username"/><br />
+        <input class="form-control log_txt" name="password" type="password" placeholder="Password"/><br />
 
-        <input class="btn btn-default log_btn" type="submit" name="login" value="aanmelden" />
+        <input class="btn btn-default log_btn" type="submit" name="login" value="Login" />
 
     </form>
