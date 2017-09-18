@@ -34,7 +34,7 @@ class auth_model extends CI_Model{
                 $_SESSION['user_logged'] = TRUE;
 
                 /** redirect to new page behind login page*/
-                redirect('[controller of next destination]', 'refresh');
+                redirect('account/account_details', 'refresh');
             }
         }
         /** if $query is empty give error on login page*/
@@ -61,6 +61,5 @@ class auth_model extends CI_Model{
         );
         /** insert data array into table users */
         $this->db->insert('users', $data);
-
     }
 }

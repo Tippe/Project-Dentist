@@ -23,11 +23,13 @@
             $data['title'] = 'Login';
             /**  checks if fields are filled */
             $this->form_validation->set_rules('username', 'username', 'required');
-            $this->form_validation->set_rules('password', 'username', 'required');
+            $this->form_validation->set_rules('password', 'passsword', 'required');
 
             /** if one or more fields are empty give error on login form */
             if ($this->form_validation->run() === FALSE) {
+                $this->load->view('templates/header');
                 $this->load->view('users/login', $data);
+                $this->load->view('templates/footer');
             }
             /** if fields are filled try login function within auth_model */
             else {
@@ -38,7 +40,7 @@
         public function register()
         {
 
-            $data['title'] = 'Registratie';
+            $data['title'] = 'register';
             /**  checks if fields are filled */
             $this->form_validation->set_rules('username', 'username', 'required');
             /** password needs atleast 8 characters */
@@ -47,11 +49,13 @@
             $this->form_validation->set_rules('password2', 'confirm password', 'required|min_length[8]|matches[password]');
             /** email needs to be valid  */
             $this->form_validation->set_rules('email', 'email', 'required|valid_email');
-            $this->form_validation->set_rules('gender', 'gender', 'required');
+            /**$this->form_validation->set_rules('gender', 'gender', 'required');**/
 
             if ($this->form_validation->run() === FALSE) {
                 /** looks if form is ok with form validation if not give error*/
+                $this->load->view('templates/header');
                 $this->load->view('users/register', $data);
+                $this->load->view('templates/footer');
             } else {
                 /** if fields are correct go to function register within auth_model */
                 $this->load->model('auth_model');
@@ -63,7 +67,7 @@
 
         }
         public function logout(){
-            /** loggout will kill session information so user wont be loggedin when want to visit next time */
+            /** logout will kill session information so user wont be loggedin when he/she want to visit next time */
             session_destroy();
             redirect('auth/login');
         }

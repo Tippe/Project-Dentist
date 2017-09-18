@@ -14,9 +14,13 @@
         }
         ?><br/>
         <!-- login form-->
-        <input class="form-control log_txt" name="username" type="text" placeholder="Username"/><br />
-        <input class="form-control log_txt" name="password" type="password" placeholder="Password"/><br />
 
-        <input class="btn btn-default log_btn" type="submit" name="login" value="Login" />
+        <label for="username">Username:</label>
+        <input name="username" type="text"/><br />
+
+        <label for="password">Password:</label>
+        <input name="password" type="password"/><br />
+
+        <input type="Submit" name="loginSubmit" value="Login">
 
     </form>
