@@ -36,6 +36,44 @@
  * @filesource
  */
 
+ /*
+  *---------------------------------------------------------------
+  * EASY!APPOINTMENTS CONFIGURATION
+  *---------------------------------------------------------------
+  *
+  * Include Easy!Appointments configuration file so that it is available
+  * globally in the application. You can access configuration information
+  * through the static Config class.
+  *
+  */
+
+ require_once __DIR__ . '/config.php';
+
+ /*
+  *---------------------------------------------------------------
+  * EASY!APPOINTMENTS AUTOLOAD FILE
+  *---------------------------------------------------------------
+  *
+  * Include Easy!Appointments autoload file so that namespace 
+  * classes are loaded automatically.
+  *
+  */
+
+ require_once __DIR__ . '/autoload.php';
+
+
+ /*
+  *---------------------------------------------------------------
+  * COMPOSER AUTOLOAD FILE
+  *---------------------------------------------------------------
+  *
+  * Include Composer's autoload.php file so that I can use external
+  * libraries directly in every section of the application.
+  *
+  */
+
+ require_once __DIR__ . '/vendor/autoload.php';
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -53,7 +91,7 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	define('ENVIRONMENT', (Config::DEBUG_MODE) ? 'development' : 'production');
 
 /*
  *---------------------------------------------------------------
