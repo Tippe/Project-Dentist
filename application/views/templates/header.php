@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
-	<head>
-		<title>Dentist</title>
-		<link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
-	</head>
-	<body>
-	<nav class="navbar navbar-inverse">
-=======
   <head>
     <title>Dentist</title>
     <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
@@ -15,7 +7,6 @@
   </head>
   <body>
   <nav class="navbar navbar-inverse">
->>>>>>> 11071da997f9a707079b7d87cb4c656730a91a8e
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="<?php echo base_url()?>home">Dentist(*)</a>
