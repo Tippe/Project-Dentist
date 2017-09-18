@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>ciBlog</title>
+		<title>Dentist</title>
 		<link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
 	</head>
 	<body>
@@ -17,5 +17,3 @@
         </div>
       </div>
     </nav>
-
-     
