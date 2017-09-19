@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang = "en">
-
 <head>
     <meta charset = "utf-8">
     <title>Dentist register</title>
 </head>
-
 <body>
 
-
-<p> Register your account</p>
+<p><h1> Register your account</h1></p>
+<br></br>
 
 <?php
 /** gives message if  registration was succesfull  */
@@ -23,6 +21,8 @@ if(isset($_SESSION['succeed'])) {
 <?php
 /** echo errors of form validation from controller */
 echo validation_errors(); ?>
+
+<br></br>
 
 <?php echo form_open('auth/register'); ?>
 <!-- Start register form -->

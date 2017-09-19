@@ -1,4 +1,3 @@
-
     <form class="log_container" action="" method="POST">
         <h1>login</h1>
 
