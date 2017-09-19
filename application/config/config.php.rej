@@ -1,0 +1,10 @@
+diff a/application/config/config.php b/application/config/config.php	(rejected hunks)
+@@ -23,7 +23,7 @@
+ | a PHP script and you can easily do that on your own.
+ |
+ */
+-$config['base_url'] = 'HTTP://localhost/dentist/';
++$config['base_url'] = 'HTTP://localhost/Project-Dentist/';
+ 
+ /*
+ |--------------------------------------------------------------------------
