@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DustDustin
- * Date: 14-Sep-17
- * Time: 5:19 PM
- */
 class auth_model extends CI_Model{
 
     public function __construct()
