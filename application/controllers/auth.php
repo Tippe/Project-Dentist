@@ -65,6 +65,11 @@
             session_destroy();
             redirect('auth/login');
         }
+        public function backend() {
+        //$this->load->view('templates/backend_header');
+        $this->load->view('backend/index');
+        //$this->load->view('templates/backend_footer');
+    }
     }
 
 ?>
