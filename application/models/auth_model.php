@@ -24,7 +24,7 @@ class auth_model extends CI_Model{
             if ($user->username) {
                 $this->session->set_flashdata('gelukt', 'je bent aangemeld');
                 /** keeps user logged-in in session  */
-                $_SESSION['user_logged'] = TRUE;
+                $this->session->set_userdata('user_logged', 'TRUE');
                 /** redirect to new page behind login page*/
                 redirect('account/account_details/'.$user->id, 'refresh');
             }

@@ -21,6 +21,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="<?php echo base_url () . 'css/skin-blue.min.css';?>">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="<?php echo base_url () . 'css/bootstrap.min.css';?>">
+
+  <link rel="stylesheet" href="<?php echo base_url () . 'css/_all-skins.min.css';?>">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="<?php echo base_url () . 'css/morris.css';?>">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="<?php echo base_url () . 'css/jquery-jvectormap.css';?>">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="<?php echo base_url () . 'css/bootstrap-datepicker.min.css';?>">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="<?php echo base_url () . 'css/daterangepicker.css';?>">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="<?php echo base_url () . 'css/bootstrap3-wysihtml5.min.css';?>">
+
+
+
+
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,6 +49,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <![endif]-->
 
   <!-- Google Font -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -162,7 +182,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="<?php echo base_url () . 'css/user2-160x160.jpg';?>" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">Henk Pietersen</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->

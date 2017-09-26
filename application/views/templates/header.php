@@ -17,6 +17,7 @@
             <li><a href="<?php echo base_url()?>auth/login">Login</a></li>
             <li><a href="<?php echo base_url()?>auth/register">Registration</a></li>
             <li><a href="<?php echo base_url()?>appointments/index">Appointments</a></li>
+            <li><a href="<?php echo base_url()?>auth/logout">Logout</a></li>
           </ul>
         </div>
       </div>
