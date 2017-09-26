@@ -20,15 +20,13 @@ class auth_model extends CI_Model{
         if($query->num_rows() > 0) {
             /** @var  $user  query row get ranamed  */
             $user = $query->row();
-
             /** looks if query has username in it */
             if ($user->username) {
                 $this->session->set_flashdata('gelukt', 'je bent aangemeld');
                 /** keeps user logged-in in session  */
                 $_SESSION['user_logged'] = TRUE;
-
                 /** redirect to new page behind login page*/
-                redirect('account/account_details', 'refresh');
+                redirect('account/account_details/'.$user->id, 'refresh');
             }
         }
         /** if $query is empty give error on login page*/
@@ -38,6 +36,7 @@ class auth_model extends CI_Model{
 
         }
     }
+
     public function register()
     {
         /** data array is filled with register form fields  */
@@ -55,5 +54,17 @@ class auth_model extends CI_Model{
         );
         /** insert data array into table users */
         $this->db->insert('users', $data);
+    }
+
+    public function get_user_by_id($id = 0)
+    {
+        if ($id === 0)
+        {
+            $query = $this->db->get('users');
+            return $query->result_array();
+        }
+ 
+        $query = $this->db->get_where('users', array('id' => $id));
+        return $query->row_array();
     }
 }

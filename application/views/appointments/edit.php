@@ -14,7 +14,7 @@
         </tr>
         <tr>
             <td><label for="description">Description</label></td>
-            <td><input type="input" name="description" size="50" value="<?php echo $appointment['time'] ?>" /></td>
+            <td><input type="input" name="description" size="50" value="<?php echo $appointment['description'] ?>" /></td>
         </tr>
         <tr>
             <td><label for="user_id">UserID</label></td>

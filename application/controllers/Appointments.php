@@ -26,7 +26,7 @@ class Appointments extends CI_Controller {
 
         if (empty($data['appointment']))
         {
-            show_404();
+            die('no appointments found');
         }
  
         $this->load->view('templates/header', $data);

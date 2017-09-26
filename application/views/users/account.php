@@ -1,6 +1,22 @@
-<h2>User Account</h2>
-<h3>Welcome <?php echo $user['name']; ?>!</h3>
-<p><b>Name: </b><?php echo $user['name']; ?></p>
-<p><b>Email: </b><?php echo $user['email']; ?></p>
-<p><b>Phone: </b><?php echo $user['phone']; ?></p>
-<p><b>Gender: </b><?php echo $user['gender']; ?></p>
+<h2><?php echo $title; ?></h2>
+
+<table border='1' cellpadding='5' width='100%'>
+    <tr>
+        <td><strong>Username</strong></td>
+        <td><strong>Firstname</strong></td>
+        <td><strong>Prefix</strong></td>
+        <td><strong>Lastname</strong></td>
+        <td><strong>Email</strong></td>
+        <td><strong>Address</strong></td>
+        <td><strong>Phone</strong></td>
+    </tr>
+	<tr>
+		<td><?php echo $users['username']; ?></td>
+		<td><?php echo $users['firstname']; ?></td>
+		<td><?php echo $users['prefix']; ?></td>
+		<td><?php echo $users['lastname']; ?></td>
+		<td><?php echo $users['email']; ?></td>
+		<td><?php echo $users['adress']; ?></td>
+		<td><?php echo $users['phone']; ?></td>
+	</tr>
+</table>

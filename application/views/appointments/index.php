@@ -1,6 +1,6 @@
 <h2><?php echo $title; ?></h2>
  
-<a class="btn btn-primary" href="<?php echo site_url('appointments/create/'); ?>" role="button">Create</a>
+<a type="button" class="help" href=<?php echo site_url('appointments/create/'); ?> >Create</a>
 
 <table border='1' cellpadding='6' width='100%'>
     <tr>
