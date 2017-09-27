@@ -10,7 +10,8 @@ class Backend extends CI_Controller {
 
     public function index() {
         //$this->load->view('templates/backend_header');
-        $this->load->view('backend/index');
+        $data['users'] = $this->backend_model->getUsers();
+        $this->load->view('backend/index', $data);
         //$this->load->view('templates/backend_footer');
     }
 

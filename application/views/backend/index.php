@@ -9,6 +9,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 2 | Starter</title>
   <!-- Tell the browser to be responsive to screen width -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<?php echo base_url () . 'css/bootstrap.min.css';?>">
   <!-- Font Awesome -->
@@ -261,7 +264,7 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Users</span></a></li>
         <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
@@ -285,8 +288,8 @@ desired effect
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Page Header
-        <small>Optional description</small>
+        Users
+        <small>Edit Users</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -296,9 +299,38 @@ desired effect
 
     <!-- Main content -->
     <section class="content container-fluid">
-
-<p>content here</p>
-
+    <table class="table table-bordered">
+            <tr>
+                <th>Username</th>
+                <th>Firstname</th>
+                <th>Prefix</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Adress</th>
+                <th>Postalcode</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+      <tr>
+<?php foreach ($users as $user): ?>
+            <td><p><?php echo $user['username']; ?></p></td> 
+            <td><p><?php echo $user['firstname']; ?></p></td>
+            <td><p><?php echo $user['prefix']; ?></p></td>
+            <td><p><?php echo $user['lastname']; ?></p></td>
+            <td><p><?php echo $user['email']; ?></p></td>
+            <td><p><?php echo $user['adress']; ?></p></td>
+            <td><p><?php echo $user['postalcode']; ?></p></td>
+            <td><p><?php echo $user['city']; ?></p></td> 
+            <td><p><?php echo $user['phone']; ?></p></td> 
+            <td><p><?php echo $user['role_id']; ?></p></td> 
+            <td><a href="#"> <span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td><a href="#"> <span class="glyphicon glyphicon-trash"></span></a></td>
+<?php endforeach; ?>
+      </tr>
+    </table>
     </section>
     <!-- /.content -->
   </div>
