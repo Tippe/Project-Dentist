@@ -1,5 +1,5 @@
 <?php
-    class auth extends ci_controller{
+    class Auth extends ci_controller{
 
 
         public function __construct()

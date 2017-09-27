@@ -1,5 +1,5 @@
 <?php 
-class Appointments_model extends CI_Model {
+class appointments_model extends CI_Model {
 
     public function __construct()
     {
