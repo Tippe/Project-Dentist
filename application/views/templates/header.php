@@ -13,11 +13,18 @@
         </div>
         <div id="navbar">
           <ul class="nav navbar-nav">
+            <?php
+            if ($this->session->userdata('user_logged') == true) {?>
+              <li><a href="<?php echo base_url()?>home">Home</a></li>
+              <li><a href="<?php echo base_url()?>appointments/index">Appointments</a></li>
+              <li><a href="<?php echo base_url()?>auth/logout">Logout</a></li>
+            <?php } 
+            else { ?>
             <li><a href="<?php echo base_url()?>home">Home</a></li>
             <li><a href="<?php echo base_url()?>auth/login">Login</a></li>
             <li><a href="<?php echo base_url()?>auth/register">Registration</a></li>
-            <li><a href="<?php echo base_url()?>appointments/index">Appointments</a></li>
-            <li><a href="<?php echo base_url()?>auth/logout">Logout</a></li>
+           <?php }  
+            ?>
           </ul>
         </div>
       </div>
