@@ -2,20 +2,21 @@
  
 <a type="button" class="help" href=<?php echo site_url('appointments/create/'); ?> >Create</a>
 
-<table border='1' cellpadding='6' width='100%'>
+<section class="content container-fluid">
+<table class="table table-bordered">
     <tr>
-        <td><strong>Date</strong></td>
-        <td><strong>Time</strong></td>
-        <td><strong>Description</strong></td>
-        <td><strong>User ID</strong></td>
-        <td><strong>Action</strong></td>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Description</th>
+        <th>User ID</th>
+        <th>Action</th>
     </tr>
 <?php foreach ($appointments as $appointment): ?>
         <tr>
-            <td><?php echo $appointment['date']; ?> </td>
-            <td><?php echo $appointment['time']; ?> </td>
-            <td><?php echo $appointment['description']; ?> </td>
-            <td><?php echo $appointment['user_id']; ?> </td>
+            <td><p><?php echo $appointment['date']; ?></p></td>
+            <td><p><?php echo $appointment['time']; ?></p></td>
+            <td><p><?php echo $appointment['description']; ?></p></td>
+            <td><p><?php echo $appointment['user_id']; ?></p></td>
             <td>
                 <a href="<?php echo site_url('appointments/view/'.$appointment['id']); ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
                 <a href="<?php echo site_url('appointments/edit/'.$appointment['id']); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
@@ -24,3 +25,4 @@
         </tr>
 <?php endforeach; ?>
 </table>
+</section>
