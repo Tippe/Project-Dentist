@@ -1,8 +1,7 @@
 <?php
 class Account extends ci_controller {
-
-	public function __construct()
-    {
+    
+	public function __construct(){
         parent::__construct();
         $this->load->model('auth_model');
         $this->load->helper('url_helper');

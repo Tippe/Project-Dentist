@@ -18,20 +18,16 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
+	public function index(){
 		$this->load->view('welcome_message');
 	}
 
 
-function loginProcess()
-{
+function loginProcess(){
     if ( isset($_POST['username']) && isset($_POST['password'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
-
         $user = checkUser($username, $password); //check usernodig voor DB
-
         if ($user == false) {
             $_SESSION['errors'][] = 'Kon niet inloggen. Probeer het opnieuw.';
             header('location: ' . URL . 'CodeIgniter/login');
@@ -40,12 +36,10 @@ function loginProcess()
             $_SESSION['username'] = $user['username'];
             $_SESSION['useradmin'] = $user['kapper'];
             $_SESSION['userid'] = $user['id'];
-        }
     } else {
         $_SESSION['errors'][] = 'Vul alstublieft een gebruikersnaam en wachtwoord in.';
         header('location: ' . URL . 'CodeIgniter/login');
         exit;
     }
-
     header('location: ' . URL . 'home/index');
 }

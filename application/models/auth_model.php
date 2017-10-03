@@ -34,7 +34,6 @@ class auth_model extends CI_Model{
         else{
             $this->session->set_flashdata("ERROR", "Invalid username or password!");
             redirect("auth/login", "refresh");
-
         }
     }
 
