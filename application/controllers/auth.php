@@ -31,12 +31,13 @@
                 $this->auth_model->login();
             }
         }
-        public function register()
-        {
-
+        public function register(){
             $data['title'] = 'register';
             /**  checks if fields are filled */
-            $this->form_validation->set_rules('username', 'username', 'required');
+            $this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]');
+            /** if username is taken it will show the message
+            The username is taken.*/
+            $this->form_validation->set_message('is_unique', '%s is taken.');
             /** password needs atleast 8 characters */
             $this->form_validation->set_rules('password', 'password', 'required|min_length[8]');
             /** need to be the same as password1 */
@@ -56,9 +57,7 @@
                 $this->auth_model->register();
                 $this->session->set_flashdata("succeed", "Your account has been created.");
                 redirect("auth/register", "refresh");
-
             }
-
         }
         public function logout(){
             /** logout will kill session information so user wont be loggedin when he/she want to visit next time */
