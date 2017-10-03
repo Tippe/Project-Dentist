@@ -23,11 +23,10 @@ class auth_model extends CI_Model{
             /** looks if query has username in it */
             $hash = $query->result_object[0]->password;
                     if (verifyPassword($password, $hash)){
-                $this->session->set_flashdata('gelukt', 'je bent aangemeld');
-                /** keeps user logged-in in session  */
-                $this->session->set_userdata('user_logged', TRUE);
-                $this->session->set_userdata('username', $username);
-                /** redirect to new page behind login page*/
+                            $roleId = $this->getRoleId($username);
+                            $this->session->set_userdata('user_logged', TRUE);
+                            $this->session->set_userdata('username', $username);
+                            $this->session->set_userdata('role_id', $roleId);
                 redirect('home');
             }
     }
@@ -37,6 +36,15 @@ class auth_model extends CI_Model{
             redirect("auth/login", "refresh");
 
         }
+    }
+
+    public function getRoleId($username){
+        $this->db->select('role_id');
+        $this->db->from('users');
+        $this->db->where('username', $username);
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result->role_id;
     }
 
     public function register()
