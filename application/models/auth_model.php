@@ -26,6 +26,7 @@ class auth_model extends CI_Model{
                             $this->session->set_userdata('user_logged', TRUE);
                             $this->session->set_userdata('username', $username);
                             $this->session->set_userdata('role_id', $roleId);
+                /** redirect to new page behind login page*/
                 redirect('home');
             }
     }

@@ -9,7 +9,7 @@
         <th>Time</th>
         <th>Description</th>
         <th>User ID</th>
-        <th>Action</th>
+        <th>Actions</th>
     </tr>
 <?php foreach ($appointments as $appointment): ?>
         <tr>
