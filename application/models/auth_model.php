@@ -23,12 +23,13 @@ class auth_model extends CI_Model{
             /** looks if query has username in it */
             $hash = $query->result_object[0]->password;
                     if (verifyPassword($password, $hash)){
-                $this->session->set_flashdata('gelukt', 'je bent aangemeld');
-                /** keeps user logged-in in session  */
-                $this->session->set_userdata('user_logged', TRUE);
-                $this->session->set_userdata('username', $username);
+                                            $roleId = $this->getRoleId($username);
+                            $this->session->set_userdata('user_logged', TRUE);
+                            $this->session->set_userdata('username', $username);
+                            $this->session->set_userdata('role_id', $roleId);
+
                 /** redirect to new page behind login page*/
-                redirect('index');
+                redirect('home');
             }
     }
         /** if $query is empty give error on login page*/
