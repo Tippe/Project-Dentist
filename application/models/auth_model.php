@@ -1,8 +1,7 @@
 <?php
 class auth_model extends CI_Model{
 
-    public function __construct()
-    {
+    public function __construct(){
         parent:: __construct();
         $this->load->database();
     }
@@ -35,7 +34,6 @@ class auth_model extends CI_Model{
         else{
             $this->session->set_flashdata("ERROR", "Invalid username or password!");
             redirect("auth/login", "refresh");
-
         }
     }
 
@@ -48,8 +46,7 @@ class auth_model extends CI_Model{
         return $result->role_id;
     }
 
-    public function register()
-    {
+    public function register(){
         $passwordhash = password_hash($_POST['password'], PASSWORD_BCRYPT);
         /** data array is filled with register form fields  */
         $data = array(
@@ -68,8 +65,7 @@ class auth_model extends CI_Model{
         $this->db->insert('users', $data);
     }
 
-    public function get_user_by_id($id = 0)
-    {
+    public function get_user_by_id($id = 0){
         if ($id === 0)
         {
             $query = $this->db->get('users');

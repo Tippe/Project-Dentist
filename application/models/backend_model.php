@@ -1,8 +1,7 @@
 <?php
 class backend_model extends CI_Model{
 
-    public function __construct()
-    {
+    public function __construct(){
         parent:: __construct();
         $this->load->database();
     }
@@ -12,9 +11,6 @@ class backend_model extends CI_Model{
 	    return $query->result_array();
 	}
 
-	public function getRoleByUser(){
-
-	}
-
+	public function getRoleByUser(){ }
 }
 // get user where role_id == 99
