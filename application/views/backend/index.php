@@ -324,8 +324,9 @@ desired effect
             <td><p><?php echo $user['role_id']; ?></p></td> 
             <td><a href="#"> <span class="glyphicon glyphicon-pencil"></span></a></td>
             <td><a href="#"> <span class="glyphicon glyphicon-trash"></span></a></td>
-<?php endforeach; ?>
+
       </tr>
+      <?php endforeach; ?>
     </table>
     </section>
     <!-- /.content -->
