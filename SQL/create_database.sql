@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 04 okt 2017 om 10:14
+-- Gegenereerd op: 09 okt 2017 om 14:44
 -- Serverversie: 5.6.17
 -- PHP-versie: 5.5.12
 
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Tabelstructuur voor tabel `appointments`
 --
 
-DROP TABLE IF EXISTS `appointments`;
 CREATE TABLE IF NOT EXISTS `appointments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
@@ -34,15 +33,31 @@ CREATE TABLE IF NOT EXISTS `appointments` (
   `description` varchar(255) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `appointments`
 --
 
-INSERT INTO `appointments` (`id`, `date`, `time`, `description`, `user_id`) VALUES
-(1, '2017-06-06', '09:40:22', 'What wubdup wubba dup', 1),
-(2, '2017-06-06', '14:44:00', 'Test 123 test', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `ci_sessions`
+--
+
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
+  `id` varchar(128) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) unsigned NOT NULL DEFAULT '0',
+  `data` blob NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ci_sessions_timestamp` (`timestamp`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `ci_sessions`
+--
 
 -- --------------------------------------------------------
 
@@ -50,7 +65,6 @@ INSERT INTO `appointments` (`id`, `date`, `time`, `description`, `user_id`) VALU
 -- Tabelstructuur voor tabel `roles`
 --
 
-DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -73,7 +87,6 @@ INSERT INTO `roles` (`id`, `name`) VALUES
 -- Tabelstructuur voor tabel `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
@@ -91,16 +104,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `username` (`username`),
   KEY `fk_users_roles_idx` (`role_id`),
   KEY `role_id` (`role_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `firstname`, `prefix`, `lastname`, `password`, `email`, `adress`, `postalcode`, `city`, `phone`, `role_id`) VALUES
-(10, 'Tippe', 'Tippe', 'van', 'Roosmalen', 'c0ec717fe1d6040fa0b78610eea34314', 'tippevanroosmalen@outlook.com', 'Nieuwe Hoven 103', '4205BB', 'Gorinchem', 646886237, 0),
-(11, 'Shitface', 'Tippe', '', 'Roosmalen', 'c0ec717fe1d6040fa0b78610eea34314', 'tippevanroosmalen@outlook.com', 'Nieuwe Hoven 103', '4205BB', 'Gorinchem', 646886237, 0),
-(12, 'Tippie', 'Tippe', 'van', 'Roosmalen', '$2y$10$oxOT8izRmdx0OmHh8HTIauHU8mGq6p1SXztR01ZrADcWfKDwauD/u', 'tippevanroosmalen@outlook.com', 'Nieuwe Hoven 103', '4205BB', 'Gorinchem', 646886237, 3);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
