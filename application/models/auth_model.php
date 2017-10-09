@@ -27,7 +27,12 @@ class auth_model extends CI_Model{
                             $this->session->set_userdata('username', $username);
                             $this->session->set_userdata('role_id', $roleId);
                 /** redirect to new page behind login page*/
+                if ($this->session->role_id == '99'){
+                    redirect('backend/index');
+                }
+                else{
                 redirect('home');
+                }
             }
     }
         /** if $query is empty give error on login page*/
