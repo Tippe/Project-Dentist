@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
@@ -521,3 +522,26 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+=======
+
+class Config {
+
+    // ------------------------------------------------------------------------
+    // GENERAL SETTINGS
+    // ------------------------------------------------------------------------
+
+    const BASE_URL      = 'http://localhost/Project-Dentist';
+
+    // ------------------------------------------------------------------------
+    // DATABASE SETTINGS
+    // ------------------------------------------------------------------------
+
+    const DB_HOST       = 'localhost';
+    const DB_NAME       = 'dentist';
+    const DB_USERNAME   = 'root';
+    const DB_PASSWORD   = '';
+}
+
+/* End of file config.php */
+/* Location: ./config.php */
+>>>>>>> 1fbb74ff957577d580a31f98c5af8db2102b0fc0
