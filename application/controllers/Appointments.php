@@ -64,7 +64,7 @@ class Appointments extends CI_Controller {
         } else {
             $this->Appointments_model->set_appointments($id);
             //$this->load->view('appointments/success');
-            redirect( base_url() . '/appointments/view', $data);
+            redirect( base_url() . 'appointments/view/'.$id, $data);
         }
     }
     
