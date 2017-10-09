@@ -18,6 +18,10 @@
               <li><a href="<?php echo base_url()?>home">Home</a></li>
               <li><a href="<?php echo base_url()?>appointments/index">Appointments</a></li>
               <li><a href="<?php echo base_url()?>auth/logout">Logout</a></li>
+            <?php
+            if ($this->session->userdata('role_id') == '99') {?>
+             <li><a href="<?php echo base_url()?>backend/index">Backend</a></li>
+            <?php } ?>
             <?php } 
             else { ?>
             <li><a href="<?php echo base_url()?>home">Home</a></li>
