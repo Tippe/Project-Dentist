@@ -295,39 +295,52 @@ desired effect
 
     <!-- Main content -->
     <section class="content container-fluid">
-    <table class="table table-bordered">
-            <tr>
-                <th>Username</th>
-                <th>Firstname</th>
-                <th>Prefix</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>Adress</th>
-                <th>Postalcode</th>
-                <th>City</th>
-                <th>Phone</th>
-                <th>Role</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-      <tr>
-<?php foreach ($users as $user): ?>
-            <td><p><?php echo $user['username']; ?></p></td> 
-            <td><p><?php echo $user['firstname']; ?></p></td>
-            <td><p><?php echo $user['prefix']; ?></p></td>
-            <td><p><?php echo $user['lastname']; ?></p></td>
-            <td><p><?php echo $user['email']; ?></p></td>
-            <td><p><?php echo $user['adress']; ?></p></td>
-            <td><p><?php echo $user['postalcode']; ?></p></td>
-            <td><p><?php echo $user['city']; ?></p></td> 
-            <td><p><?php echo $user['phone']; ?></p></td> 
-            <td><p><?php echo $user['role_id']; ?></p></td> 
-            <td><a href="<?php echo site_url('backend/edit/'.$user['id']); ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
-            <td><a href="<?php echo site_url('backend/delete/'.$user['id']); ?>" onClick="return confirm('Are you sure you want to delete?')"><span class="glyphicon glyphicon-trash"></span></a></td>
+<?php echo validation_errors(); ?>
+ 
+<?php echo form_open('backend/edit/'.$user['id']); ?>    <table>
 
-      </tr>
-      <?php endforeach; ?>
+        <tr>
+            <td><label for="title">username</label></td>
+            <td><input type="input" name="username" size="50" value="<?php echo $user['username'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label for="text">firstname</label></td>
+            <td><input type="input" name="firstname" size="50" value="<?php echo $user['firstname'] ?>" /></td>
+        </tr>
+                <tr>
+            <td><label for="text">prefix</label></td>
+            <td><input type="input" name="prefix" size="50" value="<?php echo $user['prefix'] ?>" /></td>
+        </tr>
+                <tr>
+            <td><label for="text">lastname</label></td>
+            <td><input type="input" name="lastname" size="50" value="<?php echo $user['lastname'] ?>" /></td>
+        </tr>
+                <tr>
+            <td><label for="text">email</label></td>
+            <td><input type="input" name="email" size="50" value="<?php echo $user['email'] ?>" /></td>
+        </tr>
+                <tr>
+            <td><label for="text">adress</label></td>
+            <td><input type="input" name="adress" size="50" value="<?php echo $user['adress'] ?>" /></td>
+        </tr>
+                <tr>
+            <td><label for="text">postalcode</label></td>
+            <td><input type="input" name="postalcode" size="50" value="<?php echo $user['postalcode'] ?>" /></td>
+        </tr>
+                <tr>
+            <td><label for="text">city</label></td>
+            <td><input type="input" name="city" size="50" value="<?php echo $user['city'] ?>" /></td>
+        </tr>
+        <tr>
+            <td><label for="text">phone</label></td>
+            <td><input type="input" name="phone" size="50" value="<?php echo $user['phone'] ?>" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Edit item" /></td>
+        </tr>
     </table>
+</form>
     </section>
     <!-- /.content -->
   </div>

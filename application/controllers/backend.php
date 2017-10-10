@@ -17,4 +17,49 @@ class Backend extends CI_Controller {
         //$this->load->view('templates/backend_footer');
         }
     }
+
+
+   public function edit(){
+        $id = $this->uri->segment(3);
+        
+        if (empty($id))
+        {
+            show_404();
+        }
+        
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+              
+        $data['user'] = $this->backend_model->get_user_by_id($id);
+        
+        $this->form_validation->set_rules('username', 'username', 'required');
+        $this->form_validation->set_rules('firstname', 'firstname', 'required');
+        $this->form_validation->set_rules('prefix', 'prefix', 'required');
+        $this->form_validation->set_rules('lastname', 'lastname', 'required');
+        $this->form_validation->set_rules('email', 'email', 'required');
+        $this->form_validation->set_rules('adress', 'adress', 'required');
+        $this->form_validation->set_rules('postalcode', 'postalcode', 'required');
+        $this->form_validation->set_rules('city', 'city', 'required');
+        $this->form_validation->set_rules('phone', 'phone', 'required');
+ 
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('backend/edit', $data);
+        }
+        else
+        {
+            $this->backend_model->setUser($id);
+            //$this->load->view('news/success');
+            redirect( base_url() . 'backend/index');
+        }
+    }
+
+    public function delete(){
+        $id = $this->uri->segment(3);
+        if (empty($id)){ show_404(); }
+        $appointment = $this->backend_model->get_user_by_id($id);
+        $this->backend_model->delete_user($id);        
+        redirect( base_url() . '/backend/index');        
+    }
 }
+    
