@@ -48,11 +48,16 @@ class Appointments extends CI_Controller {
     
     public function edit(){
         $id = $this->uri->segment(3);
-        if (empty($id)){ show_404(); }
+
+        if (empty($id)){
+            show_404();
+        }
         $this->load->helper('form');
         $this->load->library('form_validation');
+
         $data['title'] = 'Edit a appointment';        
         $data['appointment'] = $this->Appointments_model->get_appointments_by_id($id);
+        
         $this->form_validation->set_rules('date', 'Date', 'required');
         $this->form_validation->set_rules('time', 'Time', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
