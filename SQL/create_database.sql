@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 09 okt 2017 om 14:44
+-- Gegenereerd op: 23 okt 2017 om 11:44
 -- Serverversie: 5.6.17
 -- PHP-versie: 5.5.12
 
@@ -32,12 +32,15 @@ CREATE TABLE IF NOT EXISTS `appointments` (
   `time` time NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+  `dentist_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `dentist_id` (`dentist_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `appointments`
 --
+
 
 
 -- --------------------------------------------------------
@@ -102,14 +105,28 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role_id` int(11) NOT NULL DEFAULT '3',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
-  KEY `fk_users_roles_idx` (`role_id`),
   KEY `role_id` (`role_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
 
+--
+-- Beperkingen voor geëxporteerde tabellen
+--
+
+--
+-- Beperkingen voor tabel `appointments`
+--
+ALTER TABLE `appointments`
+  ADD CONSTRAINT `appointments_ibfk_1` FOREIGN KEY (`dentist_id`) REFERENCES `users` (`id`);
+
+--
+-- Beperkingen voor tabel `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
