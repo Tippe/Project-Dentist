@@ -8,12 +8,31 @@ class Appointments extends CI_Controller {
     }
  
     public function index(){
+        if ($this->session->user_logged == TRUE){
+        $permission = $this->session->role_id;
+    }
+        else{
+             redirect( base_url() . 'home');
+    }
+        if ($permission == '99' || $permission == '1'){
         $data['appointments'] = $this->Appointments_model->get_appointments();
+    }
+        elseif ($permission =='2') {
+        $data['appointments'] = $this->Appointments_model->get_appointments_dentist();
+    }
+        elseif($permission =='3'){
+        $data['appointments'] = $this->Appointments_model->get_appointments_guest();    
+    }
+    else{
+        echo "Something went terrible, please try again.";
+        die();
+    }
         $data['title'] = 'Appointments';
  
         $this->load->view('templates/header', $data);
         $this->load->view('appointments/index', $data);
         $this->load->view('templates/footer');
+        //die;
     }
  
     public function view($id){
@@ -33,6 +52,7 @@ class Appointments extends CI_Controller {
         $this->form_validation->set_rules('time', 'Time', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
         $this->form_validation->set_rules('user_id', 'UserID', 'required');
+        $this->form_validation->set_rules('dentist_id','dentist_id', 'required');
         if ($this->form_validation->run() === FALSE){
             $this->load->view('templates/header', $data);
             $this->load->view('appointments/create', $data);
@@ -48,16 +68,11 @@ class Appointments extends CI_Controller {
     
     public function edit(){
         $id = $this->uri->segment(3);
-
-        if (empty($id)){
-            show_404();
-        }
+        if (empty($id)){ show_404(); }
         $this->load->helper('form');
         $this->load->library('form_validation');
-
         $data['title'] = 'Edit a appointment';        
         $data['appointment'] = $this->Appointments_model->get_appointments_by_id($id);
-        
         $this->form_validation->set_rules('date', 'Date', 'required');
         $this->form_validation->set_rules('time', 'Time', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');

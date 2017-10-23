@@ -19,6 +19,10 @@
         <tr>
             <td><label for="user_id">UserID</label></td>
             <td><input type="input" name="user_id" size="3" value="<?php echo $appointment['user_id'] ?>" /></td>
+        </tr>        
+        <tr>
+            <td><label for="dentist_id">dentist_id</label></td>
+            <td><input type="input" name="dentist_id" size="3" value="<?php echo $appointment['dentist_id'] ?>" /></td>
         </tr>
         <tr>
             <td></td>

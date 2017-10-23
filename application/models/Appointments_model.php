@@ -5,10 +5,31 @@ class appointments_model extends CI_Model {
         $this->load->database();
     }
     
+    public function get_appointment_permission_of_user(){
+         $this->db->select('role_id');
+         $this->db->where('username', $this->session->username);
+         $query = $this->db->get('users');
+         return $query->result_array();
+    }
+
     public function get_appointments(){
         $query = $this->db->get('appointments');
         return $query->result_array();
     }
+
+    public function get_appointments_guest(){
+         $this->db->select('*');
+         $this->db->where('user_id', $this->session->user_id);
+         $query = $this->db->get('appointments');
+         return $query->result_array();
+    }
+
+    public function get_appointments_dentist(){
+         $this->db->select('*');
+         $this->db->where('dentist_id', $this->session->id);
+         $query = $this->db->get('appointments');
+         return $query->result_array();
+    }    
     
     public function get_appointments_by_id($id = 0){
         if ($id === 0){

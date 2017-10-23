@@ -9,7 +9,7 @@
         <th>Time</th>
         <th>Description</th>
         <th>User ID</th>
-        <th>Actions</th>
+        <th>Dentist Id</th>
     </tr>
 <?php foreach ($appointments as $appointment): ?>
         <tr>
@@ -17,6 +17,7 @@
             <td><p><?php echo $appointment['time']; ?></p></td>
             <td><p><?php echo $appointment['description']; ?></p></td>
             <td><p><?php echo $appointment['user_id']; ?></p></td>
+            <td><p><?php echo $appointment['dentist_id']; ?></p></td>
             <td>
                 <a href="<?php echo site_url('appointments/view/'.$appointment['id']); ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
                 <a href="<?php echo site_url('appointments/edit/'.$appointment['id']); ?>"><span class="glyphicon glyphicon-pencil"></span></a>

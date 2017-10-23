@@ -6,11 +6,13 @@
         <td><strong>Time</strong></td>
         <td><strong>Description</strong></td>
         <td><strong>User ID</strong></td>
+        <td><strong>Dentist Id</strong></td>
     </tr>
 	<tr>
 		<td><?php echo $appointment['date']; ?></td>
 		<td><?php echo $appointment['time']; ?></td>
 		<td><?php echo $appointment['description']; ?></td>
 		<td><?php echo $appointment['user_id']; ?></td>
+		<td><?php echo $appointment['dentist_id']; ?></td>
 	</tr>
 </table>

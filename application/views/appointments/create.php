@@ -19,6 +19,10 @@
         <tr>
             <td><label for="user_id">UserID</label></td>
             <td><input type="input" name="user_id" size="50" /></td>
+        </tr>        
+        <tr>
+            <td><label for="dentist_id">dentist_id</label></td>
+            <td><input type="input" name="dentist_id" size="3" /></td>
         </tr>
         <tr>
             <td></td>

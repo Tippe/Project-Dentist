@@ -23,9 +23,11 @@ class auth_model extends CI_Model{
             $hash = $query->result_object[0]->password;
                     if (verifyPassword($password, $hash)){
                             $roleId = $this->getRoleId($username);
+                            $id = $this->getUserId($username);
                             $this->session->set_userdata('user_logged', TRUE);
                             $this->session->set_userdata('username', $username);
                             $this->session->set_userdata('role_id', $roleId);
+                            $this->session->set_userdata('id', $id);
                 /** redirect to new page behind login page*/
                 if ($this->session->role_id == '99'){
                     redirect('backend/index');
@@ -49,6 +51,15 @@ class auth_model extends CI_Model{
         $query = $this->db->get();
         $result = $query->row();
         return $result->role_id;
+    }
+
+    public function getUserId($username){
+        $this->db->select('id');
+        $this->db->from('users');
+        $this->db->where('username', $username);
+        $query = $this->db->get();
+        $result = $query->row();
+        return $result->id;
     }
 
     public function register(){
