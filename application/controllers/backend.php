@@ -60,11 +60,16 @@ class Backend extends CI_Controller {
     }
 
     public function delete(){
-        $id = $this->uri->segment(3);
-        if (empty($id)){ show_404(); }
+        $id = $this->uri->segment(3); // Het 3e element uit de url
+
+        if (empty($id)){
+         show_404(); 
+        }
         $appointment = $this->backend_model->get_user_by_id($id);
         $this->backend_model->delete_user($id);        
-        redirect( base_url() . '/backend/index');        
+       //redirect( base_url() . '/backend/index');    
+
+
     }
 }
     
