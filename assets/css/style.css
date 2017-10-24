@@ -378,3 +378,14 @@ p.footInfo{color: #fff;margin-top: 10px;font-size: 18px;}
 	
 }
 /*--//responsive--*/
+
+/* Navbar */
+.navbar-default {
+	background: #18bc9c;
+}
+.navbar-hover:hover{
+	color: black !important;
+}
+.dropdown-toggle{
+	background-color: #18bc9c !important;
+}
