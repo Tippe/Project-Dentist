@@ -12,7 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="icon" href="<?php echo base_url(); ?>assets/img/brackets.png" type="image/gif" sizes="16x16">
+    <!--<link rel="icon" href="<?php echo base_url(); ?>assets/img/brackets.png" type="image/gif" sizes="16x16"> -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<?php echo base_url () . 'css/bootstrap.min.css';?>">
   <!-- Font Awesome -->
@@ -89,9 +89,8 @@ desired effect
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
             <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
+           
+            
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 4 messages</li>
@@ -123,8 +122,7 @@ desired effect
           <li class="dropdown notifications-menu">
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+             
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 10 notifications</li>
@@ -146,8 +144,7 @@ desired effect
           <li class="dropdown tasks-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
+          
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 9 tasks</li>
@@ -184,7 +181,7 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="<?php echo base_url () . 'css/user2-160x160.jpg';?>" class="user-image" alt="">
+             
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">Henk Pietersen</span>
             </a>
@@ -238,21 +235,15 @@ desired effect
         <div class="pull-left image">
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
-        <div class="pull-left info">
-          <p>Alexander Pierce</p>
-          <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
       </div>
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="<?php echo base_url () . 'backend/index';?>"<i class="fa fa-link"></i> <span>Users</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+        <li><a href="<?php echo site_url('backend/index');?>"><i class="fa fa-link"></i> <span>Users</span></a></li>
+        <li><a href="#"><i class="fa fa-link"></i> <span>Appointments</span></a></li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
