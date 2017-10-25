@@ -46,7 +46,7 @@
   <!-- Main Header -->
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="<?php echo site_url('backend/index');?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>B</b>A</span>
       <!-- logo for regular state and mobile devices -->
@@ -79,9 +79,12 @@
     <section class="sidebar">
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <!-- Optionally, you can add icons to the links -->
-        <li><a href="<?php echo site_url('backend/index');?>"><i class="fa fa-link"></i><span>Users</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i><span>Appointments</span></a></li>
+          <!-- Optionally, you can add icons to the links -->
+          <li><a href="<?php echo site_url('home');?>"><i class="glyphicon glyphicon-menu-hamburger"></i><span>Frontend</span></a></li>
+          <li><a href="<?php echo site_url('backend/index');?>"><i class="glyphicon glyphicon-user"></i><span>Users</span></a></li>
+          <li><a href="<?php echo site_url('backend/create');?>"><i class="glyphicon glyphicon-plus"></i><span>Create User</span></a></li>
+          <li><a href="#"><i class="fa fa-link"></i><span>Appointments</span></a></li>
+          <li><a href="<?php echo site_url('auth/logout');?>"><i class="glyphicon glyphicon-log-out"></i><span>Logout</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

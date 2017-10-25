@@ -38,7 +38,7 @@ class backend_model extends CI_Model{
             'adress' => $this->input->post('adress'),
 			'postalcode' => $this->input->post('postalcode'),
 			'city' => $this->input->post('city'),
-			'phone' => $this->input->post('phone'),
+			'phone' => $this->input->post('phone')
         );
 
         if ($id == 0) {
