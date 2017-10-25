@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel='stylesheet' type='text/css' />
     <link rel="icon" href="<?php echo base_url(); ?>assets/img/brackets.png" type="image/gif" sizes="16x16">
+    
   </head>
   <body>
 
