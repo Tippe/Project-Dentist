@@ -73,9 +73,9 @@ class Backend extends CI_Controller {
               
         $data['user'] = $this->backend_model->get_user_by_id($id);
         
-        $this->form_validation->set_rules('username', 'username', 'required');
+        $this->form_validation->set_rules('username', 'username');
         $this->form_validation->set_rules('firstname', 'firstname', 'required');
-        $this->form_validation->set_rules('prefix', 'prefix', 'required');
+        $this->form_validation->set_rules('prefix', 'prefix');
         $this->form_validation->set_rules('lastname', 'lastname', 'required');
         $this->form_validation->set_rules('email', 'email', 'required');
         $this->form_validation->set_rules('adress', 'adress', 'required');

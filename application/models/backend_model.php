@@ -27,10 +27,8 @@ class backend_model extends CI_Model{
     {
         $this->load->helper('url');
  
-        //$slug = url_title($this->input->post('title'), 'dash', TRUE);
- 
         $data = array(
-            'username' => $this->input->post('username'),
+            //'username' => $this->input->post('username'),
             'firstname' => $this->input->post('firstname'),
             'prefix' => $this->input->post('prefix'),
             'lastname' => $this->input->post('lastname'),
