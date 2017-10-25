@@ -34,7 +34,7 @@
     <?php
             if ($this->session->userdata('user_logged') == true) {?>
       <ul class="nav navbar-nav">
-        <li><a class="navbar-hover" href="<?php echo base_url()?>appointments/index">Appointments</a></li>
+        <li><a class="navbar-hover" href="<?php echo site_url('appointments/index')?>">Appointments</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -42,10 +42,10 @@
           <ul class="dropdown-menu">
             <li><a href="<?php echo site_url('account/account_details/'.$this->session->userdata('id')); ?>">Account Details</a></li>
             <li><a href="#">Wachtwoord vergeten</a></li>
-            <li><a href="<?php echo base_url()?>auth/logout">Logout</a></li>
+            <li><a href="<?php echo base_url('auth/logout')?>">Logout</a></li>
             <?php if ($this->session->userdata('role_id') != '3') {?>
             <li role="separator" class="divider"></li>
-            <li><a href="<?php echo base_url()?>backend/index">Backend</a></li>
+            <li><a href="<?php echo site_url('backend/index')?>">Backend</a></li>
             <?php }
           }
              else { ?>
@@ -57,6 +57,6 @@
           </ul>
         </li>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>

@@ -1,6 +1,6 @@
-<h2><?php echo $title; ?></h2>
+<h1><?php echo $title; ?></h1>
  
-<a type="button" class="help" href=<?php echo site_url('appointments/create/'); ?> >Create</a>
+<a type="button" class="help" href=<?php echo site_url('appointments/create'); ?> >Create</a>
 
 <section class="content container-fluid">
 <table class="table table-bordered">

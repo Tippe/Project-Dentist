@@ -1,11 +1,8 @@
 <div class="container">
     <div class="row">
         <br>
-        <div class="col-md-3">
-        <!-- left col -->
-        </div>
-        <div class="col-xs-6  well"> 
-            <?php echo $this->session->flashdata('login_msg'); ?>
+        <div class="col-xs-6 well">
+            <?php echo $this->session->flashdata('login_failed'); ?>
             <?php echo form_open('Auth/login'); ?>
             <fieldset>
                 <legend class="text-center">Login</legend>
@@ -31,23 +28,15 @@
                 <!-- signin button -->
                 <div class="form-group">
                     <div class="row colbox text-center">
-                        <input type="submit" id="btn_login" name="loginSubmit" value="Login" class="btn btn-primary btn-block"/>
+                        <input type="submit" id="login" name="login" value="Login" class="btn btn-primary btn-block"/>
                     </div>
                 </div>
             </fieldset>
             <?php echo form_close(); ?>
             <div class="text-center">
                 <br>
-                <a href="<?php echo base_url()?>Signup_Controller/index" >don't have an account, signup here</a>
+                <p>Don't have an account?</p><a href="<?php echo site_url('auth/register')?>">Register Here!</a>
             </div>
-            
-        </div>
-        <div class="col-md-3">
-             <!-- right col -->
         </div>
     </div>
 </div>
-
-
-     
-  

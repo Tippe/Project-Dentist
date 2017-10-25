@@ -1,4 +1,4 @@
-<h2><?php echo $title; ?></h2>
+<h1><?php echo $title; ?></h1>
 
 <table border='1' cellpadding='5' width='100%'>
     <tr>
@@ -21,6 +21,6 @@
 	</tr>
 </table>
 <div class="demon">
-</br>
-<td><a href=""> <button type="button" onclick=alert("I am an alert box!") class="btn btn-warning">Wachtwoord aanpassen? </button></a></td>
+	</br>
+	<td><a href=""> <button type="button" onclick=alert("I am an alert box!") class="btn btn-warning">Wachtwoord aanpassen? </button></a></td>
 </div>

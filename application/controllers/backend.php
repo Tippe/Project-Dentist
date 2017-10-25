@@ -13,15 +13,14 @@ class Backend extends CI_Controller {
     }
 
     public function index() {
-        //$this->load->view('templates/backend_header');
         $data['users'] = $this->backend_model->getUsers();
+
         if ($this->session->role_id == '99'){
         $this->load->view('templates/backend_header');    
         $this->load->view('backend/index', $data);
         $this->load->view('templates/backend_footer');
-    } else {
-        $this->load->view('errors/index');
-        //$this->load->view('templates/backend_footer');
+        } else {
+            $this->load->view('errors/index');
         }
     }
 
@@ -34,37 +33,23 @@ class Backend extends CI_Controller {
         $this->form_validation->set_rules('email', 'email', 'required|valid_email');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->session->set_flashdata('msg', '<div class="alert alert-danger text-center">Failed!! Please try again.</div>');
             $this->load->view('templates/backend_header');
-            $this->load->view('backend/create');
+            $this->load->view('backend/create', $data);
             $this->load->view('templates/backend_footer');
         } else {
             $passwordhash = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $data = array(
-                    'username' => $_POST['username'],
-                    'password' => $passwordhash,
-                    'firstname' =>$_POST['firstname'],
-                    'prefix' => $_POST['prefix'],
-                    'lastname' => $_POST['lastname'],
-                    'adress' => $_POST['adress'],
-                    'city' => $_POST['city'],
-                    'postalcode' => $_POST['postalcode'],
-                    'email' => $_POST['email'],
-                    'phone' => $_POST['phone']
-            );
+            $this->load->model('backend_model');
+            $this->backend_model->create();
+
             $this->session->set_flashdata('succeed', '<div class="alert alert-success text-center">User Account has been Created.</div>');
-            $this->db->insert('users', $data);
-            $this->load->view('templates/backend_header');
-            $this->load->view('backend/create');
-            $this->load->view('templates/backend_footer');
+            redirect("backend/create", "refresh");
         }
     }
 
     public function edit(){
         $id = $this->uri->segment(3);
         
-        if (empty($id))
-        {
+        if (empty($id)){
             show_404();
         }
         
@@ -83,28 +68,21 @@ class Backend extends CI_Controller {
         $this->form_validation->set_rules('city', 'city', 'required');
         $this->form_validation->set_rules('phone', 'phone', 'required');
  
-        if ($this->form_validation->run() === FALSE)
-        {
+        if ($this->form_validation->run() === FALSE){
             $this->load->view('templates/backend_header');
             $this->load->view('backend/edit', $data);
             $this->load->view('templates/backend_footer');
-        }
-        else
-        {
+        } else {
             $this->backend_model->setUser($id);
-            //$this->load->view('news/success');
-            redirect( base_url() . 'backend/index');
+            redirect(base_url('backend/index'));
         }
     }
 
     public function delete(){
-        $id = $this->uri->segment(3); // Het 3e element uit de url
-
-        if (empty($id)){
-         show_404(); 
-        }
+        $id = $this->uri->segment(3);
         $appointment = $this->backend_model->get_user_by_id($id);
         $this->backend_model->delete_user($id);
+        redirect('backend/index');
     }
 
      public function logout(){

@@ -1,4 +1,4 @@
-<h2><?php echo $title; ?></h2>
+<h1><?php echo $title; ?></h1>
 
 <table border='1' cellpadding='5' width='100%'>
     <tr>

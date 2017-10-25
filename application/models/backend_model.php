@@ -46,6 +46,23 @@ class backend_model extends CI_Model{
             return $this->db->update('users', $data);
         }
     }
+
+    public function create(){
+        $passwordhash = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $data = array(
+            'username' => $_POST['username'],
+            'password' => $passwordhash,
+            'firstname' =>$_POST['firstname'],
+            'prefix' => $_POST['prefix'],
+            'lastname' => $_POST['lastname'],
+            'adress' => $_POST['adress'],
+            'city' => $_POST['city'],
+            'postalcode' => $_POST['postalcode'],
+            'email' => $_POST['email'],
+            'phone' => $_POST['phone']
+        );
+        $this->db->insert('users', $data);
+    }
     
     public function delete_user($id)
     {

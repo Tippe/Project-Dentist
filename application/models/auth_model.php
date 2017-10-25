@@ -7,39 +7,34 @@ class auth_model extends CI_Model{
     }
 
     public function login(){
-        /**both variables are form fields */
         $username = $_POST['username'];
         $password = $_POST['password'];
-        /** Query gets generated to look if user exists */
+
         $this->db->select('password');
         $this->db->from('users');
         $this->db->where('username', $username);
+
         $query = $this->db->get();
-        /** if statement looks if query is filled with results */
+
         if($query->num_rows() > 0) {
-            /** @var  $user  query row get ranamed  */
             $user = $query->row();
-            /** looks if query has username in it */
             $hash = $query->result_object[0]->password;
-                    if (verifyPassword($password, $hash)){
-                            $roleId = $this->getRoleId($username);
-                            $id = $this->getUserId($username);
-                            $this->session->set_userdata('user_logged', TRUE);
-                            $this->session->set_userdata('username', $username);
-                            $this->session->set_userdata('role_id', $roleId);
-                            $this->session->set_userdata('id', $id);
-                /** redirect to new page behind login page*/
+            if (verifyPassword($password, $hash)){
+                $roleId = $this->getRoleId($username);
+                $id = $this->getUserId($username);
+                $this->session->set_userdata('user_logged', TRUE);
+                $this->session->set_userdata('username', $username);
+                $this->session->set_userdata('role_id', $roleId);
+                $this->session->set_userdata('id', $id);
                 if ($this->session->role_id == '99'){
                     redirect('backend/index');
                 }
-                else{
-                redirect('home');
+                else {
+                    redirect('home');
                 }
             }
-    }
-        /** if $query is empty give error on login page*/
-        else{
-            $this->session->set_flashdata("ERROR", "Invalid username or password!");
+        } else {
+            $this->session->set_flashdata('login_failed', '<div class="alert alert-danger text-center">Username or Password is incorrect.</div>');
             redirect("auth/login", "refresh");
         }
     }
@@ -64,7 +59,6 @@ class auth_model extends CI_Model{
 
     public function register(){
         $passwordhash = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        /** data array is filled with register form fields  */
         $data = array(
             'username' => $_POST['username'],
             'password' => $passwordhash,
@@ -77,7 +71,6 @@ class auth_model extends CI_Model{
             'email' => $_POST['email'],
             'phone' => $_POST['phone']
         );
-        /** insert data array into table users */
         $this->db->insert('users', $data);
     }
 
@@ -87,18 +80,17 @@ class auth_model extends CI_Model{
             $query = $this->db->get('users');
             return $query->result_array();
         }
- 
         $query = $this->db->get_where('users', array('id' => $id));
         return $query->row_array();
     }
 }
 
-function verifyPassword($login_password, $user_password) {
-    if (password_verify($login_password, $user_password) ) {
-        return true;
+    function verifyPassword($login_password, $user_password) {
+        if (password_verify($login_password, $user_password) ) {
+            return true;
+        }
+        else {
+            echo "the password is incorrect.";
+        return false;
+        }
     }
-    else{
-  echo "the password is incorrect.";
-    return false;
-    }
-}
