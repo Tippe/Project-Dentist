@@ -29,7 +29,7 @@ class appointments_model extends CI_Model {
          $this->db->where('dentist_id', $this->session->id);
          $query = $this->db->get('appointments');
          return $query->result_array();
-    }    
+    }   
     
     public function get_appointments_by_id($id = 0){
         if ($id === 0){
