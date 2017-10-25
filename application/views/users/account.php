@@ -20,3 +20,7 @@
 		<td><?php echo $users['phone']; ?></td>
 	</tr>
 </table>
+<div class="demon">
+</br>
+<td><a href=""> <button type="button" onclick=alert("I am an alert box!") class="btn btn-warning">Wachtwoord aanpassen? </button></a></td>
+</div>
