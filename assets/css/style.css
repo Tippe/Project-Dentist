@@ -33,11 +33,12 @@ body {
 }
 
 .footer {
-   position:absolute;
+   position:fixed;
+   float:bottom;
    bottom:0;
    width:100%;
-   height:60px;   /* Height of the footer */
-   background:#6cf;
+   padding-left: 5%;
+   padding-right: 5%;
 }
 
 html, body{
