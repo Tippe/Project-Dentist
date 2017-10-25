@@ -31,8 +31,15 @@ body {
    padding:0;
    height:100%;
 }
-.footer{
+
+.footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+   background:#6cf;
 }
+
 html, body{
 	font-family: 'Signika', sans-serif;
 	font-weight:300;
