@@ -1,9 +1,13 @@
-<h1><?php echo $title; ?></h1>
- 
-<a type="button" class="help" href=<?php echo site_url('appointments/create'); ?> >Create</a>
+<div class="container" style="text-align: center;">
+<h1 style="font-size:34pt;"><?= $title ?></h1>
+
+<br>
+<a type="button" class="btn btn-success" href=<?php echo site_url('appointments/create'); ?> >Create</a>
+
 
 <section class="content container-fluid">
 <table class="table table-bordered">
+    <br>
     <tr>
         <th>Date</th>
         <th>Time</th>
