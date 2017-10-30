@@ -110,7 +110,8 @@ class Appointments extends CI_Controller {
             $this->load->helper('form');
             $this->load->library('form_validation');
             $this->form_validation->set_rules('new_password', 'new_password', 'required|min_length[8]');
-            $this->form_validation->set_rules('new_password_2', 'new_password_2', 'required|min_length[8]');
+            $this->form_validation->set_rules('new_password_2', 'new_password_2', 'required|min_length[8]|matches[new_password]');
+            $this->form_validation->set_message('matches', 'Password does not match');
 
             if ($this->form_validation->run() === FALSE) {
                 $this->load->view('templates/header');
