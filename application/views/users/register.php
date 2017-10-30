@@ -7,7 +7,7 @@
             <?php echo form_open('auth/register') ?>
 
             <fieldset>
-                <legend class="text-center">Registration</legend>
+                <legend class="text-center"><h1 style="font-size: 20pt;">Registration</h1></legend>
 
                 <!-- user name -->
                 <div class="form-group">
