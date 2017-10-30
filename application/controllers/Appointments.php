@@ -8,11 +8,10 @@ class Appointments extends CI_Controller {
     }
  
     public function index(){
-        if ($this->session->user_logged == TRUE){
         $permission = $this->session->role_id;
-    }
-        else{
-             redirect( base_url() . 'home');
+
+        if ($this->session->user_logged == FALSE){
+        redirect( base_url() . 'home');
     }
         if ($permission == '99' || $permission == '1'){
         $data['appointments'] = $this->Appointments_model->get_appointments();
@@ -32,13 +31,15 @@ class Appointments extends CI_Controller {
         $this->load->view('templates/header', $data);
         $this->load->view('appointments/index', $data);
         $this->load->view('templates/footer');
-        //die;
     }
  
     public function view($id){
         $data['appointment'] = $this->Appointments_model->get_appointments_by_id($id);
         $data['title'] = 'Appointment View';
-        if (empty($data['appointment'])){ die('no appointments found'); }
+
+        if (empty($data['appointment'])){
+            die('no appointments found');
+        }
         $this->load->view('templates/header', $data);
         $this->load->view('appointments/view', $data);
         $this->load->view('templates/footer');
@@ -53,6 +54,7 @@ class Appointments extends CI_Controller {
         $this->form_validation->set_rules('description', 'Description', 'required');
         $this->form_validation->set_rules('user_id', 'UserID', 'required');
         $this->form_validation->set_rules('dentist_id','dentist_id', 'required');
+
         if ($this->form_validation->run() === FALSE){
             $this->load->view('templates/header', $data);
             $this->load->view('appointments/create', $data);
@@ -88,17 +90,19 @@ class Appointments extends CI_Controller {
             $this->load->view('templates/footer');
         } else {
             $this->Appointments_model->set_appointments($id);
-            //$this->load->view('appointments/success');
             redirect( base_url() . 'appointments/view/'.$id, $data);
         }
     }
     
     public function delete(){
         $id = $this->uri->segment(3);
-        if (empty($id)){ show_404(); }
+
+        if (empty($id)){
+            show_404();
+        }
         $appointment = $this->Appointments_model->get_appointments_by_id($id);
         $this->Appointments_model->delete_appointments($id);        
-        redirect( base_url() . '/appointments/index');        
+        redirect(base_url('appointments/index'));        
     }
 
         public function changepassword(){

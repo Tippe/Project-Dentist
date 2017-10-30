@@ -2,9 +2,13 @@
     <div class="row">
         <br>
         <div class="col-xs-12 .col-md-8-centered well">
+
+            <?php echo $this->session->flashdata('succeed'); ?>
             <?php echo form_open('auth/register') ?>
+
             <fieldset>
-                <legend class="text-center">Registration</legend>
+                <legend class="text-center"><h1 style="font-size: 20pt;">Registration</h1></legend>
+
                 <!-- user name -->
                 <div class="form-group">
                     <div class="row colbox">
@@ -15,6 +19,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- user address -->
                 <div class="form-group">
                     <div class="row colbox">
@@ -25,6 +30,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- user email -->
                 <div class="form-group">
                     <div class="row colbox">
@@ -35,6 +41,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- user username -->
                 <div class="form-group">
                     <div class="row colbox">
@@ -65,6 +72,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- user password -->
                 <div class="form-group">
                     <div class="row colbox">
@@ -86,7 +94,8 @@
                         </div>
                     </div>
                 </div>
-                                <div class="form-group">
+
+                <div class="form-group">
                     <div class="row colbox">
                         <div class="col-xs-12 .col-md-8">
                             <label for="postalcode" class="control-label">Postalcode</label>
@@ -95,7 +104,8 @@
                         </div>
                     </div>
                 </div>
-                                <div class="form-group">
+
+                <div class="form-group">
                     <div class="row colbox">
                         <div class="col-xs-12 .col-md-8">
                             <label for="email" class="control-label">E-mail</label>
@@ -105,7 +115,7 @@
                     </div>
                 </div>
 
-                             <div class="form-group">
+                <div class="form-group">
                     <div class="row colbox">
                         <div class="col-xs-12 .col-md-8">
                             <label for="phone" class="control-label">Phone</label>
@@ -119,22 +129,16 @@
                 <div class="form-gruop">
                     <div class="row colbox">
                         <div class="col-xs-12 .col-md-8">
-                            <input id="btn_signup" name="btn_signup" type="submit" class="btn btn-primary col-xs-12 .col-md-8" value="Signup" />
-                            <br><br>
-                            <input type="reset" id="btn_reset" name="btn_reset" class="btn btn-default col-xs-12 .col-md-8" value="Cancel"/>
+                            <input id="btn_signup" name="btn_signup" type="submit" class="btn btn-primary col-xs-12 .col-md-8" value="Register"/>
                         </div>
                     </div>
                 </div>
-
-
             </fieldset>
             <?php echo form_close(); ?>
              <div class="text-center">
                  <br>
                 <a href="<?php echo base_url()?>Auth/login" >Already signed up, Login</a>
             </div>
-            
         </div>
     </div>
-
 </div>
