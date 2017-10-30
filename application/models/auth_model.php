@@ -11,7 +11,7 @@ class auth_model extends CI_Model{
         $username = $_POST['username'];
         $password = $_POST['password'];
         $hash = $this->get_hash($username);
-                    if (verifyPassword($password, $hash)){
+                    if ($this->verifyPassword($password, $hash)){
                             $roleId = $this->getRoleId($username);
                             $id = $this->getUserId($username);
                             $this->session->set_userdata('user_logged', TRUE);
