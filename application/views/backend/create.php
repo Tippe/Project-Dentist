@@ -4,7 +4,7 @@
         <div class="col-xs-12 .col-md-8-centered well">
 
             <?php echo $this->session->flashdata('succeed'); ?>
-            <?php echo form_open('backend/create') ?>
+            <?php echo form_open('backend/create'); ?>
             
             <fieldset>
                 <legend class="text-center">Create User Account</legend>
@@ -137,4 +137,5 @@
             <?php echo form_close(); ?>
         </div>
     </div>
+</div>
 </div>
