@@ -125,7 +125,6 @@ class Appointments extends CI_Controller {
             }
             } 
     }
-
 else{
             redirect(site_url() . '/home/');  
         }
