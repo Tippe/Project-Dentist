@@ -22,5 +22,5 @@
 </table>
 <div class="demon">
 </br>
-<td><a href=""> <button type="button" onclick=alert("I am an alert box!") class="btn btn-warning">Wachtwoord aanpassen? </button></a></td>
+<td><a href="<?php echo site_url('appointments/changepassword'); ?>""> <button type="button" onclick=alert("I am an alert box!") class="btn btn-warning">Wachtwoord aanpassen? </button></a></td>
 </div>

@@ -41,7 +41,7 @@
           <a href="#" class="dropdown-toggle navbar-hover" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><?php echo $this->session->userdata('username');?> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<?php echo site_url('account/account_details/'.$this->session->userdata('id')); ?>">Account Details</a></li>
-            <li><a href="#">Wachtwoord vergeten</a></li>
+            <li><a href="<?php echo base_url()?>#">Forgot password</a></li>
             <li><a href="<?php echo base_url()?>auth/logout">Logout</a></li>
             <?php if ($this->session->userdata('role_id') != '3') {?>
             <li role="separator" class="divider"></li>

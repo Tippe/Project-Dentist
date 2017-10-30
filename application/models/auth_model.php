@@ -10,18 +10,8 @@ class auth_model extends CI_Model{
         /**both variables are form fields */
         $username = $_POST['username'];
         $password = $_POST['password'];
-        /** Query gets generated to look if user exists */
-        $this->db->select('password');
-        $this->db->from('users');
-        $this->db->where('username', $username);
-        $query = $this->db->get();
-        /** if statement looks if query is filled with results */
-        if($query->num_rows() > 0) {
-            /** @var  $user  query row get ranamed  */
-            $user = $query->row();
-            /** looks if query has username in it */
-            $hash = $query->result_object[0]->password;
-                    if (verifyPassword($password, $hash)){
+        $hash = $this->get_hash($username);
+                    if ($this->verifyPassword($password, $hash)){
                             $roleId = $this->getRoleId($username);
                             $id = $this->getUserId($username);
                             $this->session->set_userdata('user_logged', TRUE);
@@ -36,12 +26,33 @@ class auth_model extends CI_Model{
                 redirect('home');
                 }
             }
-    }
         /** if $query is empty give error on login page*/
         else{
             $this->session->set_flashdata("ERROR", "Invalid username or password!");
             redirect("auth/login", "refresh");
         }
+    }
+
+    public function get_hash($username){
+            if($username != NULL){
+            /** Query gets generated to look if user exists */
+            $this->db->select('password');
+            $this->db->from('users');
+            $this->db->where('username', $username);
+            $query = $this->db->get();
+            /** if statement looks if query is filled with results */
+
+            if($query->num_rows() > 0) {
+                /** @var  $user  query row get ranamed  */
+                $user = $query->row();
+                /** looks if query has username in it */
+                $hash = $query->result_object[0]->password;
+                return $hash;
+            }
+        }
+            else{
+                die("Something went wrong.");
+            }
     }
 
     public function getRoleId($username){
@@ -91,7 +102,7 @@ class auth_model extends CI_Model{
         $query = $this->db->get_where('users', array('id' => $id));
         return $query->row_array();
     }
-}
+
 
 function verifyPassword($login_password, $user_password) {
     if (password_verify($login_password, $user_password) ) {
@@ -101,4 +112,5 @@ function verifyPassword($login_password, $user_password) {
   echo "the password is incorrect.";
     return false;
     }
+}
 }

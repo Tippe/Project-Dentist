@@ -65,10 +65,14 @@ class Appointments extends CI_Controller {
             //redirect( base_url() . '/appointments/view', $data);
         }
     }
-    
+
     public function edit(){
         $id = $this->uri->segment(3);
-        if (empty($id)){ show_404(); }
+
+        if (empty($id)){
+            show_404();
+        }
+
         $this->load->helper('form');
         $this->load->library('form_validation');
         $data['title'] = 'Edit a appointment';        
@@ -77,6 +81,7 @@ class Appointments extends CI_Controller {
         $this->form_validation->set_rules('time', 'Time', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
         $this->form_validation->set_rules('user_id', 'UserID', 'required');
+
         if ($this->form_validation->run() === FALSE){
             $this->load->view('templates/header', $data);
             $this->load->view('appointments/edit', $data);
@@ -94,5 +99,30 @@ class Appointments extends CI_Controller {
         $appointment = $this->Appointments_model->get_appointments_by_id($id);
         $this->Appointments_model->delete_appointments($id);        
         redirect( base_url() . '/appointments/index');        
+    }
+
+        public function changepassword(){
+            if ($this->session->user_logged == TRUE){
+            $this->load->helper('form');
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('new_password', 'new_password', 'required|min_length[8]');
+            $this->form_validation->set_rules('new_password_2', 'new_password_2', 'required|min_length[8]');
+
+            if ($this->form_validation->run() === FALSE) {
+                $this->load->view('templates/header');
+                $this->load->view('appointments/changepassword');
+                $this->load->view('templates/footer');
+            }   
+            if ($this->form_validation->run() === TRUE) {
+            $id = $this->session->id;
+            if ($this->Appointments_model->change_password($id)){
+                        echo"goodjob!";    
+            }
+            } 
+    }
+
+else{
+            redirect(site_url() . '/home/');  
+        }
     }
 }

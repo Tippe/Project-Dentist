@@ -61,4 +61,19 @@ class appointments_model extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->delete('appointments');
     }
+
+    public function change_password($id){
+        $this->load->model('auth_model');
+        $username = $this->session->username;
+        $hash = $this->auth_model->get_hash($username);
+        $password = $_POST['current_password'];
+        if ($this->auth_model->verifyPassword($password, $hash)){
+        $data = array(
+            'password' => password_hash($this->input->post('new_password'), PASSWORD_BCRYPT)
+        );
+        $this->db->where('id', $id);
+        return $this->db->update('users', $data);
+    }
+}
+
 }
