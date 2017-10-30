@@ -32,9 +32,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <?php
-            if ($this->session->userdata('user_logged') == true) {?>
+      if ($this->session->userdata('user_logged') == true) {?>
       <ul class="nav navbar-nav">
-        <li><a class="navbar-hover" href="<?php echo base_url()?>appointments/index">Appointments</a></li>
+        <li><a class="navbar-hover" href="<?php echo base_url('appointments/index')?>">Appointments</a></li>
+        <?php if($this->session->userdata('role_id') == '2') { ?>
+        <li><a class="navbar-hover" href="<?php echo base_url('appointments/#')?>">My Appointments</a></li>
+        <?php } ?>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -43,20 +46,19 @@
             <li><a href="<?php echo site_url('account/account_details/'.$this->session->userdata('id')); ?>">Account Details</a></li>
             <li><a href="<?php echo site_url('appointments/changepassword')?>">Forgot password</a></li>
             <li><a href="<?php echo site_url('auth/logout')?>">Logout</a></li>
-            <?php if ($this->session->userdata('role_id') == '99') {?>
+            <?php if($this->session->userdata('role_id') == '99') {?>
             <li role="separator" class="divider"></li>
             <li><a href="<?php echo site_url('backend/index')?>">Backend</a></li>
-            <?php }
-          }
-             else { ?>
-                   <ul class="nav navbar-nav">
-            <li><a class="navbar-hover" href="<?php echo base_url()?>auth/login">Login</a></li>
-            <li><a class="navbar-hover" href="<?php echo base_url()?>auth/register">Registration</a></li></ul>
-           <?php }  
-            ?>
+            <?php } else { ?>
+            <ul class="nav navbar-nav">
+              <li><a class="navbar-hover" href="<?php echo base_url()?>auth/login">Login</a></li>
+              <li><a class="navbar-hover" href="<?php echo base_url()?>auth/register">Registration</a></li>
+            </ul>
+            <?php }?>
           </ul>
         </li>
       </ul>
+      <?php } ?>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
