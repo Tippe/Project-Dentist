@@ -2,7 +2,9 @@
 	<h1 style="font-size:34pt;"><?= $title ?></h1>
 	<br/>
     <section class="content container-fluid">
-    	<td><a href=""> <button type="button" onclick=alert("I am an alert box!") class="btn btn-warning">Wachtwoord aanpassen</button></a></td>
+    	<td>
+    		<a type="button" class="btn btn-warning" href=<?php echo site_url('appointments/changepassword'); ?> >Wachtwoord aanpassen</a>
+    	</td>
         <br/>
         <table class="table table-bordered">
             <br />
