@@ -1,7 +1,6 @@
 <div class="container">
     <div class="row">
-        <br>
-        <div class="col-xs-6 well">
+        <div class="col-xs-12 .col-md-8-centered well">
             <?php echo $this->session->flashdata('login_failed'); ?>
             <?php echo form_open('Auth/login'); ?>
             <fieldset>
