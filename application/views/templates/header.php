@@ -31,14 +31,26 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <?php
-      if ($this->session->userdata('user_logged') == true) {?>
+
+      <?php if ($this->session->userdata('user_logged') == true) { ?> <!-- Gebruiker moet ingelogd zijn voor het maken van appointments -->
       <ul class="nav navbar-nav">
         <li><a class="navbar-hover" href="<?php echo base_url('appointments/index')?>">Appointments</a></li>
-        <?php if($this->session->userdata('role_id') == '2') { ?>
-        <li><a class="navbar-hover" href="<?php echo base_url('appointments/#')?>">My Appointments</a></li>
-        <?php } ?>
       </ul>
+
+      <?php } else { ($this->session->userdata('user_logged') == false) ?> <!-- Als gebruiker niet ingelogd is krijgt je login en register te zien -->
+      <ul class="nav navbar-nav">
+        <li><a class="navbar-hover" href="<?php echo base_url()?>auth/login">Login</a></li>
+        <li><a class="navbar-hover" href="<?php echo base_url()?>auth/register">Registration</a></li>
+      </ul>
+      <?php } ?>
+
+      <?php if($this->session->userdata('role_id') == '2') { ?> <!-- Als gebruiker role_id 2 heeft is het een dentist die de volgende -->
+      <ul class="nav navbar-nav">
+        <li><a class="navbar-hover" href="<?php echo base_url('appointments/#')?>">My Appointments</a></li>
+      </ul>
+      <?php } ?>
+
+      <?php if ($this->session->userdata('user_logged') == true) { ?>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle navbar-hover" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><?php echo $this->session->userdata('username');?> <span class="caret"></span></a>
@@ -49,12 +61,7 @@
             <?php if($this->session->userdata('role_id') == '99') {?>
             <li role="separator" class="divider"></li>
             <li><a href="<?php echo site_url('backend/index')?>">Backend</a></li>
-            <?php } else { ?>
-            <ul class="nav navbar-nav">
-              <li><a class="navbar-hover" href="<?php echo base_url()?>auth/login">Login</a></li>
-              <li><a class="navbar-hover" href="<?php echo base_url()?>auth/register">Registration</a></li>
-            </ul>
-            <?php }?>
+            <?php } ?>
           </ul>
         </li>
       </ul>

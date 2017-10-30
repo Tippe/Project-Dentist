@@ -19,7 +19,7 @@
                 $this->auth_model->login();
             } else {
                 $this->load->view('templates/header');
-                $this->load->view('users/login', $data);
+                $this->load->view('users/login');
                 $this->load->view('templates/footer');
             }
         }

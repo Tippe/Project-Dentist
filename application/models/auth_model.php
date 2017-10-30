@@ -18,7 +18,7 @@ class auth_model extends CI_Model{
                             $this->session->set_userdata('username', $username);
                             $this->session->set_userdata('role_id', $roleId);
                             $this->session->set_userdata('id', $id);
-                /** redirect to new page behind login page*/
+                // redirect to new page behind login page
                 if ($this->session->role_id == '99'){
                     redirect('backend/index');
                 }
@@ -109,8 +109,8 @@ function verifyPassword($login_password, $user_password) {
         return true;
     }
     else{
-  echo "the password is incorrect.";
-    return false;
+        $this->session->set_flashdata('failed', '<div class="alert alert-danger text-center">Username or Password incorrect.</div>');
+        redirect('auth/login', 'refresh');
     }
 }
 }
