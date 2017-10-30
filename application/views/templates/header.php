@@ -12,11 +12,10 @@
     <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.min.css">
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel='stylesheet' type='text/css' />
     <link rel="icon" href="<?php echo base_url(); ?>assets/img/brackets.png" type="image/gif" sizes="16x16">
-    
   </head>
   <body>
 
-    <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
