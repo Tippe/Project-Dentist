@@ -1,6 +1,9 @@
-<h1><?php echo $title; ?></h1>
+<div class="container" style="text-align: center;">
+    <h1 style="font-size:34pt;"><?= $title ?></h1>
+<br>    
 
-<table border='1' cellpadding='5' width='100%'>
+ <section class="content container-fluid">
+        <table class="table table-bordered">
     <tr>
         <td><strong>Date</strong></td>
         <td><strong>Time</strong></td>

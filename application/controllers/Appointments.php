@@ -48,7 +48,7 @@ class Appointments extends CI_Controller {
     public function create(){
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $data['title'] = 'Create a appointment';
+        $data['title'] = 'Create Appointment';
         $this->form_validation->set_rules('date', 'Date', 'required');
         $this->form_validation->set_rules('time', 'Time', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
@@ -77,7 +77,7 @@ class Appointments extends CI_Controller {
 
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $data['title'] = 'Edit a appointment';        
+        $data['title'] = 'Edit Appointment';        
         $data['appointment'] = $this->Appointments_model->get_appointments_by_id($id);
         $this->form_validation->set_rules('date', 'Date', 'required');
         $this->form_validation->set_rules('time', 'Time', 'required');
