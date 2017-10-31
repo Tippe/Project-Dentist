@@ -31,7 +31,9 @@ body {
    padding:0;
    height:100%;
 }
-
+.title{
+	font-size: 20pt;
+}
 .footer {
    position:fixed;
    float:bottom;

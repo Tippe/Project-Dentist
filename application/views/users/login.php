@@ -4,7 +4,7 @@
             <?php echo $this->session->flashdata('failed'); ?>
             <?php echo form_open('Auth/login'); ?>
             <fieldset>
-                <legend class="text-center"><h1 style="font-size: 20pt;">Login</h1></legend>
+                <legend class="text-center"><h1 class="title">Login</h1></legend>
                 <!-- username -->
                 <div class="form-group">
                     <div class="row colbox">     
