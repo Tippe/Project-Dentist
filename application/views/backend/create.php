@@ -7,7 +7,7 @@
             <?php echo form_open('backend/create'); ?>
             
             <fieldset>
-                <legend class="text-center">Create User Account</legend>
+                <legend class="text-center"><h1 class="title"><?php echo $title; ?></h1></legend>
 
                 <!-- user name -->
                 <div class="form-group">
@@ -137,5 +137,4 @@
             <?php echo form_close(); ?>
         </div>
     </div>
-</div>
 </div>

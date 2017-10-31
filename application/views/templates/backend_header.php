@@ -99,5 +99,5 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <section class="content-header">
-      <h1>Users</h1>
+    <h1>Users</h1>
   </section>

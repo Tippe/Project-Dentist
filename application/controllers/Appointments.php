@@ -12,17 +12,16 @@ class Appointments extends CI_Controller {
 
         if ($this->session->user_logged == FALSE){
         redirect(site_url('home'));
-    }
+        }
         if ($permission == '99' || $permission == '1'){
-        $data['appointments'] = $this->Appointments_model->get_appointments();
-    }
+            $data['appointments'] = $this->Appointments_model->get_appointments();
+        }
         elseif ($permission =='2') {
-        $data['appointments'] = $this->Appointments_model->get_appointments_dentist();
-    }
+            $data['appointments'] = $this->Appointments_model->get_appointments_dentist();
+        }
         elseif($permission =='3'){
-        $data['appointments'] = $this->Appointments_model->get_appointments_guest();    
-    }
-    else{
+            $data['appointments'] = $this->Appointments_model->get_appointments_guest();    
+        } else{
         echo "Something went terrible, please try again.";
         die();
     }
@@ -62,7 +61,7 @@ class Appointments extends CI_Controller {
         } else {
             $this->Appointments_model->set_appointments();
             $this->load->view('templates/header', $data);
-            $this->load->view('appointments/success');
+            $this->load->view('appointments/index');
             $this->load->view('templates/footer');
             //redirect( base_url() . '/appointments/view', $data);
         }
@@ -83,6 +82,7 @@ class Appointments extends CI_Controller {
         $this->form_validation->set_rules('time', 'Time', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
         $this->form_validation->set_rules('user_id', 'UserID', 'required');
+        //$this->form_validation->set_rules('dentist_id', 'Dentist ID');
 
         if ($this->form_validation->run() === FALSE){
             $this->load->view('templates/header', $data);

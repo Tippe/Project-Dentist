@@ -25,7 +25,7 @@ class Backend extends CI_Controller {
     }
 
     public function create(){
-        $data['title'] = 'Create User';
+        $data['title'] = 'Create User Account';
         $this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]');
         $this->form_validation->set_message('is_unique', '%s is taken.');
         $this->form_validation->set_rules('password', 'password', 'required|min_length[8]');

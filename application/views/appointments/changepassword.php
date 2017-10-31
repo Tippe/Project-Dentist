@@ -4,7 +4,7 @@
         <div class="col-xs-12 .col-md-8-centered well">
             <?php echo form_open('appointments/changepassword') ?>
             <fieldset>
-                <legend class="text-center"><h1 style="font-size:20pt;">Change Password</h1></legend>
+                <legend class="text-center"><h1 class="title">Change Password</h1></legend>
                 <!-- user name -->
                 <div class="form-group">
                     <div class="row colbox">

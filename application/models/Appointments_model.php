@@ -42,12 +42,13 @@ class appointments_model extends CI_Model {
     
     public function set_appointments($id = 0){
         $this->load->helper('url');
-        $slug = url_title($this->input->post('title'), 'dash', TRUE);
+        //$slug = url_title($this->input->post('title'), 'dash', TRUE);
         $data = array(
             'date' => $this->input->post('date'),
             'time' => $this->input->post('time'),
             'description' => $this->input->post('description'),
             'user_id' => $this->input->post('user_id'),
+            //'dentist_id' => $this->input->post('dentist_id'),
         );
         if ($id == 0) {
             return $this->db->insert('appointments', $data);

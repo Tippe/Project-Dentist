@@ -4,7 +4,7 @@
 
     <br />
 
-    <a type="button" class="btn btn-success" href=<?php echo site_url('appointments/create'); ?> >Create</a>
+    <a type="button" class="btn btn-success" href=<?php echo base_url('appointments/create'); ?> >Create</a>
 
     <section class="content container-fluid">
     <table class="table table-bordered">
@@ -53,7 +53,8 @@
             <a href="<?php echo site_url('appointments/delete/'.$appointment['id']); ?>" onClick="return confirm('Are you sure you want to delete?')"><span class="glyphicon glyphicon-trash"></span></a>
         </div>
     </div>
+    <?php endforeach; ?>
 </div>
-<?php endforeach; ?>
+
 </table>
 </section>

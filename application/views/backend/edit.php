@@ -1,8 +1,9 @@
-<!-- Main content -->
-<section class="content container-fluid">
-<?php echo validation_errors(); ?>
- 
-<?php echo form_open('backend/edit/'.$user['id']); ?>
+<div class="container">
+    <section class="content container-fluid">
+
+    <?php echo validation_errors(); ?>
+    <?php echo form_open('backend/edit/'.$user['id']); ?>
+
     <table>
         <tr>
             <td><label for="text">Username</label></td>
@@ -29,7 +30,7 @@
             <td><label for="text">Address</label></td>
             <td><input type="input" name="adress" size="50" value="<?php echo $user['adress'] ?>" /></td>
         </tr>
-                <tr>
+        <tr>
             <td><label for="text">Postalcode</label></td>
             <td><input type="input" name="postalcode" size="50" value="<?php echo $user['postalcode'] ?>" /></td>
         </tr>
@@ -46,6 +47,6 @@
             <td><input type="submit" name="submit" value="Edit item" /></td>
         </tr>
     </table>
-</form>
-</section>
+    <?php echo form_close(); ?>
+    </section>
 </div>
