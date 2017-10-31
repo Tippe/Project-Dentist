@@ -11,7 +11,7 @@ class Appointments extends CI_Controller {
         $permission = $this->session->role_id;
 
         if ($this->session->user_logged == FALSE){
-        redirect( base_url() . 'home');
+        redirect(site_url('home'));
     }
         if ($permission == '99' || $permission == '1'){
         $data['appointments'] = $this->Appointments_model->get_appointments();
