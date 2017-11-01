@@ -3,7 +3,7 @@
 	<br/>
     <section class="content container-fluid">
     	<td>
-    		<a type="button" class="btn btn-warning" href=<?php echo site_url('appointments/changepassword'); ?> >Wachtwoord aanpassen</a>
+    		<a type="button" class="btn btn-primary" href=<?php echo site_url('appointments/changepassword'); ?> >Change Password</a>
     	</td>
         <br/>
         <table class="table table-bordered">
