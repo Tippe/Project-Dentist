@@ -8,11 +8,11 @@
    <table class="table table-bordered">
 
     <tr>
-        <td><strong>Date</strong></td>
-        <td><strong>Time</strong></td>
-        <td><strong>Description</strong></td>
-        <td><strong>User ID</strong></td>
-        <td><strong>Dentist Id</strong></td>
+        <td class="bold">Date</td>
+        <td class="bold">Time</td>
+        <td class="bold">Description</td>
+        <td class="bold">User ID</td>
+        <td class="bold">Dentist Id</td>
     </tr>
 	<tr>
 		<td><?php echo $appointment['date']; ?></td>

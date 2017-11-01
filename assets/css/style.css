@@ -48,6 +48,9 @@ body {
 .footer a{
 	color: white;
 }
+.bold{
+	font-weight: bold;
+}
 
 html, body{
 	font-family: 'Signika', sans-serif;

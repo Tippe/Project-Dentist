@@ -9,13 +9,13 @@
         <table class="table table-bordered">
             <br />
             <tr>
-                <td><strong>Username</strong></td>
-		        <td><strong>Firstname</strong></td>
-		        <td><strong>Prefix</strong></td>
-		        <td><strong>Lastname</strong></td>
-		        <td><strong>Email</strong></td>
-		        <td><strong>Address</strong></td>
-		        <td><strong>Phone</strong></td>
+                <td class="bold">Username</td>
+		        <td class="bold">Firstname</td>
+		        <td class="bold">Prefix</td>
+		        <td class="bold">Lastname></td>
+		        <td class="bold">Email</td>
+		        <td class="bold">Address</td>
+		        <td class="bold">Phone</td>
             </tr>
             <tr>
 				<td><?php echo $users['username']; ?></td>
