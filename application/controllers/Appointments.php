@@ -119,7 +119,8 @@ class Appointments extends CI_Controller {
             if ($this->form_validation->run() === TRUE) {
             $id = $this->session->id;
             if ($this->Appointments_model->change_password($id)){
-                        echo"goodjob!";    
+                $this->session->set_flashdata('edited', '<div class="alert alert-success text-center">Password successfully changed.</div>');
+                redirect( base_url() . 'home');  
             }
             } 
     }
