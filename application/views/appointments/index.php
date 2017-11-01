@@ -1,5 +1,5 @@
 <div class="container">
-
+<?php echo $this->session->flashdata('created'); ?>
     <h1 class="title"><?= $title ?></h1>
 
     <br />

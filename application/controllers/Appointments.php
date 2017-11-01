@@ -60,10 +60,8 @@ class Appointments extends CI_Controller {
             $this->load->view('templates/footer');
         } else {
             $this->Appointments_model->set_appointments();
-            $this->load->view('templates/header', $data);
-            $this->load->view('appointments/index');
-            $this->load->view('templates/footer');
-            //redirect( base_url() . '/appointments/view', $data);
+            $this->session->set_flashdata('created', '<div class="alert alert-success text-center">Appointment successfully created.</div>');
+            redirect( base_url() . '/appointments/index', $data);
         }
     }
 
