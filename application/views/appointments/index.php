@@ -10,12 +10,14 @@
     <table class="table table-bordered">
 
     <tr>
-        <td><strong>Date</strong></td>
-        <td><strong>Time</strong></td>
-        <td><strong>Description</strong></td>
-        <td><strong>User ID</strong></td>
-        <td><strong>Dentist Id</strong></td>
-        <td><strong>Actions</strong></td>
+        <td class="bold">Date</td>
+        <td class="bold">Time</td>
+        <td class="bold">Description</td>
+        <td class="bold">User ID</strong></td>
+        <td class="bold">Dentist Id</td>
+        <td class="bold">View</td>
+        <td class="bold">Edit</td>
+        <td class="bold">Delete</td>
 
     </tr>
     <?php foreach ($appointments as $appointment): ?>
@@ -25,12 +27,9 @@
         <td><?php echo $appointment['description']; ?></td>
         <td><?php echo $appointment['user_id']; ?></td>
         <td><?php echo $appointment['dentist_id']; ?></td>
-
-        <td>
-            <a href="<?php echo site_url('appointments/view/'.$appointment['id']); ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
-            <a href="<?php echo site_url('appointments/edit/'.$appointment['id']); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
-            <a href="<?php echo site_url('appointments/delete/'.$appointment['id']); ?>" onClick="return confirm('Are you sure you want to delete?')"><span class="glyphicon glyphicon-trash"></span></a>
-        </td>
+        <td><a href="<?php echo site_url('appointments/view/'.$appointment['id']); ?>"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+        <td><a href="<?php echo site_url('appointments/edit/'.$appointment['id']); ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+        <td><a href="<?php echo site_url('appointments/delete/'.$appointment['id']); ?>" onClick="return confirm('Are you sure you want to delete?')"><span class="glyphicon glyphicon-trash"></span></a></td>
     </tr>
     <?php endforeach; ?>
 </div>
