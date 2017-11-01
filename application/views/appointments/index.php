@@ -9,50 +9,29 @@
     <section class="content container-fluid">
     <table class="table table-bordered">
 
-    <div class="row">
-        <div class="col-md-2">
-            <p>Date</p>
-        </div>
-        <div class="col-md-1">
-            <p>Time</p>
-        </div>
-        <div class="col-md-3">
-            <p>Description</p>
-        </div>
-        <div class="col-md-2">
-            <p>User ID</p>
-        </div>
-        <div class="col-md-2">
-            <p>Dentist ID</p>
-        </div>
-        <div class="col-md-2">
-            <p>Actions</p>
-        </div>
-        
-    </div>
+    <tr>
+        <td><strong>Date</strong></td>
+        <td><strong>Time</strong></td>
+        <td><strong>Description</strong></td>
+        <td><strong>User ID</strong></td>
+        <td><strong>Dentist Id</strong></td>
+        <td><strong>Actions</strong></td>
+
+    </tr>
     <?php foreach ($appointments as $appointment): ?>
-    <div class="row">
-        <div class="col-md-2">
-            <p><?php echo $appointment['date']; ?></p>
-        </div>
-        <div class="col-md-1">
-            <p><?php echo $appointment['time']; ?></p>
-        </div>
-        <div class="col-md-3">
-            <p><?php echo $appointment['description']; ?></p>
-        </div>
-        <div class="col-md-2">
-            <p><?php echo $appointment['user_id']; ?></p>
-        </div>
-        <div class="col-md-2">
-            <p><?php echo $appointment['dentist_id']; ?></p>
-        </div>
-        <div class="col-md-2">
+    <tr>
+        <td><?php echo $appointment['date']; ?></td>
+        <td><?php echo $appointment['time']; ?></td>
+        <td><?php echo $appointment['description']; ?></td>
+        <td><?php echo $appointment['user_id']; ?></td>
+        <td><?php echo $appointment['dentist_id']; ?></td>
+
+        <td>
             <a href="<?php echo site_url('appointments/view/'.$appointment['id']); ?>"><span class="glyphicon glyphicon-eye-open"></span></a>
             <a href="<?php echo site_url('appointments/edit/'.$appointment['id']); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
             <a href="<?php echo site_url('appointments/delete/'.$appointment['id']); ?>" onClick="return confirm('Are you sure you want to delete?')"><span class="glyphicon glyphicon-trash"></span></a>
-        </div>
-    </div>
+        </td>
+    </tr>
     <?php endforeach; ?>
 </div>
 

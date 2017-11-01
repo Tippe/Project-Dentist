@@ -1,6 +1,12 @@
-<h1 class="title"><?php echo $title; ?></h1>
+<div class="container">
 
-<table border='1' cellpadding='5' width='100%'>
+    <h1 class="title"><?= $title ?></h1>
+
+    <br />
+
+   <section class="content container-fluid">
+   <table class="table table-bordered">
+
     <tr>
         <td><strong>Date</strong></td>
         <td><strong>Time</strong></td>
@@ -16,3 +22,6 @@
 		<td><?php echo $appointment['dentist_id']; ?></td>
 	</tr>
 </table>
+	    <a type="button" class="btn btn-success" href=<?php echo base_url('appointments/index'); ?> >Back</a>
+
+
